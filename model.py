@@ -16,7 +16,7 @@ class SalesRep(db.Model):
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     company = db.Column(db.String(255))
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.String(20))
 
     def __repr__(self):
         return f'User: rep_id={self.rep_id} Name={self.last_name, self.first_name} Company={self.company}'
