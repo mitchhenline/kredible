@@ -75,7 +75,7 @@ class Meeting(db.Model):
     meeting_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     date = db.Column(db.DateTime)
     meeting_link = db.Column(db.String(255))
-    cust_id = db.Column(db.Integer, db.ForeignKey("customers.rep_id"))
+    cust_id = db.Column(db.Integer, db.ForeignKey("customers.cust_id"))
     adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"))
     rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
 
@@ -90,7 +90,7 @@ class Messages(db.Model):
 
     message_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     date = db.Column(db.DateTime)
-    message = db.Column(db.Text(5000))
+    message = db.Column(db.String)
     adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"))
     rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
 
