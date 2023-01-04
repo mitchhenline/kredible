@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Log In to Kredible{% endblock %}
+
+{% block body %}
+
+<form class="adv-login-form"method="POST" action="/advocate_login">
+    <div id="adv-login-email-box">{{ form.email.label }}: {{ form.email }}</div>
+    <div id="adv-login-password-box">{{ form.password.label }}: {{ form.password }}</div>
+    {{ form.csrf_token }}
+    <button id="login-button" class ="btn btn-primary" type="submit">Sign In</button>
+</form>
+
+{% endblock %}
+
+{% block after_body %}{% endblock %}
