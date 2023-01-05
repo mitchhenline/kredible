@@ -16,6 +16,9 @@ def homepage():
     """view homepage."""
     return render_template("home.html")
 
+
+####################### ADVOCATE LOG-IN AND LOG-OUT #############################
+
 @app.route('/advocate')
 def advocate_home():
     """view advocate homepage"""
@@ -29,11 +32,10 @@ def adv_login():
     """log sales advocate into site"""
     form = AdvLoginForm(request.form)
 
-    # Form is submitted with valid data
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-    #Check to see if a user with this email exists
+    
         user = crud.get_adv_by_email(email)
         if not user or user.password != password:
             flash("Invalid email or password")
@@ -47,50 +49,39 @@ def adv_logout():
     del session['adv_id']
     return redirect("/advocate_login")
 
+####################### SALES REP LOG-IN AND LOG-OUT #############################
 
+@app.route('/rep')
+def rep_home():
+    """view sales rep homepage"""
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
 
+    return render_template('rep.html')
 
+@app.route('/rep_login', methods=["GET", "POST"])
+def rep_login():
+    """log sales advocate into site"""
+    form = RepLoginForm(request.form)
 
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
 
+        user = get_rep_by_email(email)
+        if not user or user.password != password:
+            return redirect('/rep_login')
 
+        session['rep_id'] = user.rep_id 
+        return redirect('/rep')
 
+    return render_template("rep_login.html", form=form)
 
+@app.route('/rep_logout')
+def rep_logout():
 
-
-
-# @app.route('/rep')
-# def rep_home():
-#     """view sales rep homepage"""
-#     if 'rep_id' not in session:
-#         return redirect('/rep_login')
-
-#     return render_template('rep.html')
-
-# @app.route('/rep_login', methods=["GET", "POST"])
-# def rep_login():
-#     """log sales advocate into site"""
-#     form = RepLoginForm(request.form)
-
-#     # Form is submitted with valid data
-#     if form.validate_on_submit():
-#         email = form.email.data
-#         password = form.password.data
-#     #Check to see if a user with this email exists
-#         user = get_rep_by_email(email)
-#         if not user or user.password != password:
-#             return redirect('/rep_login')
-
-#         session['rep_id'] = user.rep_id 
-#         return redirect('/rep')
-
-#     return render_template("rep_login.html", form=form)
-
-# @app.route('/rep_logout')
-# def rep_logout():
-
-#     del session['rep_id']
-#     flash("Logged out.")
-#     return redirect("/rep_login")
+    del session['rep_id']
+    return redirect("/rep_login")
 
 
 if __name__ == "__main__":
