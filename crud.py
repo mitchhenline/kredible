@@ -21,5 +21,8 @@ def create_sales_adv(email, password, first_name, last_name, company, phone_numb
         phone_number=phone_number)
     return sales_adv
 
-def get_user_by_email(email):
-    pass
+def get_adv_by_email(email) -> SalesAdv:
+    return SalesAdv.query.filter(SalesAdv.email == email).first()
+
+def get_rep_by_email(email) -> SalesRep:
+    return SalesRep.query.filter(SalesRep.email == email).first()

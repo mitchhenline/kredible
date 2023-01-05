@@ -3,7 +3,8 @@
 from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db, db
 from jinja2 import StrictUndefined
-from crud import create_sales_rep, get_user_by_email
+import crud
+from crud import get_adv_by_email, get_rep_by_email
 from forms import AdvLoginForm, RepLoginForm
 
 app = Flask(__name__)
@@ -18,8 +19,10 @@ def homepage():
 @app.route('/advocate')
 def advocate_home():
     """view advocate homepage"""
-    if 'email' not in session:
+    if 'adv_id' not in session:
         return redirect('/advocate_login')
+
+    return render_template('advocate.html')
 
 @app.route('/advocate_login', methods=["GET", "POST"])
 def adv_login():
@@ -30,46 +33,64 @@ def adv_login():
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-
     #Check to see if a user with this email exists
-        user = get_user_by_email(email)
-
+        user = crud.get_adv_by_email(email)
         if not user or user.password != password:
             flash("Invalid email or password")
             return redirect('/advocate_login')
-
-        session['email'] = user.email 
+        session['adv_id'] = user.adv_id
         return redirect('/advocate')
-
     return render_template("advocate_login.html", form=form)
 
-@app.route('/rep')
-def rep_home():
-    """view sales rep homepage"""
-    if 'email' not in session:
-        return redirect('/rep_login')
+@app.route('/adv_logout')
+def adv_logout():
+    del session['adv_id']
+    return redirect("/advocate_login")
 
-@app.route('/rep_login', methods=["GET", "POST"])
-def rep_login():
-    """log sales advocate into site"""
-    form = RepLoginForm(request.form)
 
-    # Form is submitted with valid data
-    if form.validate_on_submit():
-        email = form.email.data
-        password = form.password.data
 
-    #Check to see if a user with this email exists
-        user = get_user_by_email(email)
 
-        if not user or user.password != password:
-            flash("Invalid email or password")
-            return redirect('/rep_login')
 
-        session['email'] = user.email 
-        return redirect('/rep')
 
-    return render_template("rep_login.html", form=form)
+
+
+
+
+
+
+# @app.route('/rep')
+# def rep_home():
+#     """view sales rep homepage"""
+#     if 'rep_id' not in session:
+#         return redirect('/rep_login')
+
+#     return render_template('rep.html')
+
+# @app.route('/rep_login', methods=["GET", "POST"])
+# def rep_login():
+#     """log sales advocate into site"""
+#     form = RepLoginForm(request.form)
+
+#     # Form is submitted with valid data
+#     if form.validate_on_submit():
+#         email = form.email.data
+#         password = form.password.data
+#     #Check to see if a user with this email exists
+#         user = get_rep_by_email(email)
+#         if not user or user.password != password:
+#             return redirect('/rep_login')
+
+#         session['rep_id'] = user.rep_id 
+#         return redirect('/rep')
+
+#     return render_template("rep_login.html", form=form)
+
+# @app.route('/rep_logout')
+# def rep_logout():
+
+#     del session['rep_id']
+#     flash("Logged out.")
+#     return redirect("/rep_login")
 
 
 if __name__ == "__main__":
