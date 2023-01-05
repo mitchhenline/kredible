@@ -6,6 +6,17 @@
 
 <p>You are logged in as an advocate.</p>
 
+<h3>Your Connections</h3>
+<div>
+    {% for relationship in relationships %}
+                <a href="/advocate/{{ relationship.rep_id }}">
+                     {{ relationship.rep_id }}
+                </a><br>
+    {% endfor %}
+</div>
+
+
+
 <a class= "logout" href="/adv_logout">Logout</a>
 
 

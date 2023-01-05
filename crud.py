@@ -26,3 +26,21 @@ def get_adv_by_email(email) -> SalesAdv:
 
 def get_rep_by_email(email) -> SalesRep:
     return SalesRep.query.filter(SalesRep.email == email).first()
+
+def get_relationships_by_adv_id(adv_id):
+    adv_rep = AdvRep.query.filter(AdvRep.adv_id == adv_id)
+    print(type(adv_rep)) 
+    return adv_rep #this will display the AdvRep ids but I cannot get the name to display
+
+def get_relationships_by_rep_id(rep_id):
+    adv_rep = AdvRep.query.filter(AdvRep.rep_id == rep_id)
+    print(type(adv_rep)) 
+    return adv_rep
+
+
+    # rep_id_name = relationship.rep_id
+    # return relationship
+
+# def get_concerts(email: str):
+#     user = get_user_by_email(email)
+#     return Concert.query.filter(Concert.user_id == user.user_id)

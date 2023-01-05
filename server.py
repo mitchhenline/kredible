@@ -25,7 +25,8 @@ def advocate_home():
     if 'adv_id' not in session:
         return redirect('/advocate_login')
 
-    return render_template('advocate.html')
+    relationships = crud.get_relationships_by_adv_id(session['adv_id'])
+    return render_template('advocate.html', relationships = relationships)
 
 @app.route('/advocate_login', methods=["GET", "POST"])
 def adv_login():
@@ -57,7 +58,9 @@ def rep_home():
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
-    return render_template('rep.html')
+    relationships = crud.get_relationships_by_rep_id(session['rep_id'])
+    return render_template('rep.html', relationships = relationships)
+
 
 @app.route('/rep_login', methods=["GET", "POST"])
 def rep_login():
