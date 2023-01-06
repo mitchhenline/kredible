@@ -86,6 +86,30 @@ def rep_logout():
     del session['rep_id']
     return redirect("/rep_login")
 
+####################### ADVOCATE NAVIGATE REPS PAGE #############################
+
+@app.route('/advocate/<rep_id>')
+def view_ind_rep(rep_id):
+    """view advocate's rep information'"""
+    if 'adv_id' not in session:
+        return redirect('/advocate_login')
+
+    rep = crud.get_rep_by_rep_id(rep_id)
+    return render_template('view_ind_rep.html')
+
+####################### SALES REP NAVIGATE ADVS PAGE #############################
+
+@app.route('/rep/<adv_id>')
+def view_ind_adv(adv_id):
+    """view sales rep's advocate information'"""
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
+
+    adv = crud.get_adv_by_adv_id(adv_id)
+    return render_template('view_ind_adv.html')
+
+
+
 
 if __name__ == "__main__":
     connect_to_db(app)

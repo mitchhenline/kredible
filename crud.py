@@ -37,6 +37,12 @@ def get_relationships_by_rep_id(rep_id):
     print(type(adv_rep)) 
     return adv_rep
 
+def get_rep_by_rep_id(rep_id):
+    rep = SalesRep.query.filter(SalesRep.rep_id == rep_id).first()
+
+def get_adv_by_adv_id(adv_id):
+    rep = SalesAdv.query.filter(SalesAdv.adv_id == adv_id).first()
+
 
     # rep_id_name = relationship.rep_id
     # return relationship
