@@ -1,10 +1,11 @@
 """Kredible server."""
 
-from flask import Flask, render_template, request, flash, session, redirect
-from model import connect_to_db, db
+from flask import Flask, render_template, request, flash, session, redirect, abort
+from model import connect_to_db, db, Customer
 from jinja2 import StrictUndefined
 import crud
-from forms import AdvLoginForm, RepLoginForm
+from crud import get_rep_by_rep_id
+from forms import AdvLoginForm, RepLoginForm, AddCustomer
 
 app = Flask(__name__)
 app.secret_key= "gggc"
@@ -54,7 +55,7 @@ def adv_logout():
     del session['adv_id']
     return redirect("/advocate_login")
 
-####################### SALES REP LOG-IN AND LOG-OUT #############################
+####################### SALES REP LOG-IN AND LOG-OUT, HOME PAGE #############################
 
 @app.route('/rep')
 def rep_home():
@@ -62,17 +63,35 @@ def rep_home():
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
-
+    form = AddCustomer(request.form)
     customers = crud.get_customers_by_rep_id(session['rep_id'])
     user = crud.get_rep_by_rep_id(session['rep_id'])
     relationships = crud.get_relationships_by_rep_id(session['rep_id']) #grabs a list of relationships for user
     sales_advs = [] #empty list
     for relationship in relationships:              #grabs the sales advocates from the relationship and puts into list
         sales_advs.append(relationship.sales_adv)
-    return render_template('rep.html', sales_advs = sales_advs, customers = customers, user = user)
+    return render_template('rep.html', sales_advs = sales_advs, customers = customers, user = user, form = form)
 
-    
-
+@app.route('/rep', methods =['POST'])
+def add_customer():
+    """add customer"""
+    form = AddCustomer(request.form)
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
+    if form.validate_on_submit():
+        customer = Customer(
+            first_name = form.first_name.data,
+            last_name = form.last_name.data,
+            email = form.email.data,
+            company = form.company.data,
+            phone_number = form.phone_number.data,
+            rep_id = session['rep_id']
+        )
+        db.session.add(customer)
+        db.session.commit()
+        return redirect('/rep')
+    else:
+        abort(404)
 
 @app.route('/rep_login', methods=["GET", "POST"])
 def rep_login():

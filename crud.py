@@ -21,6 +21,15 @@ def create_sales_adv(email, password, first_name, last_name, company, phone_numb
         phone_number=phone_number)
     return sales_adv
 
+def create_customer(first_name, last_name, email, company, phone_number):
+    customer = Customer(
+        first_name=first_name,
+        last_name=last_name,
+        email=email,
+        company=company,
+        phone_number=phone_number)
+    return customer
+
 def get_adv_by_email(email) -> SalesAdv:
     return SalesAdv.query.filter(SalesAdv.email == email).first()
 
