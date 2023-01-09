@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db, db
 from jinja2 import StrictUndefined
 import crud
-from crud import get_adv_by_email, get_rep_by_email
 from forms import AdvLoginForm, RepLoginForm
 
 app = Flask(__name__)
@@ -26,11 +25,12 @@ def advocate_home():
         return redirect('/advocate_login')
 
     relationships = crud.get_relationships_by_adv_id(session['adv_id'])
+    user = crud.get_adv_by_adv_id(session['adv_id'])
     sales_reps = []
     for relationship in relationships:
         sales_reps.append(relationship.sales_rep)
 
-    return render_template('advocate.html', sales_reps = sales_reps)
+    return render_template('advocate.html', sales_reps = sales_reps, user = user)
 
 @app.route('/advocate_login', methods=["GET", "POST"])
 def adv_login():
@@ -64,12 +64,12 @@ def rep_home():
 
 
     customers = crud.get_customers_by_rep_id(session['rep_id'])
-
+    user = crud.get_rep_by_rep_id(session['rep_id'])
     relationships = crud.get_relationships_by_rep_id(session['rep_id']) #grabs a list of relationships for user
     sales_advs = [] #empty list
     for relationship in relationships:              #grabs the sales advocates from the relationship and puts into list
         sales_advs.append(relationship.sales_adv)
-    return render_template('rep.html', sales_advs = sales_advs, customers = customers)
+    return render_template('rep.html', sales_advs = sales_advs, customers = customers, user = user)
 
     
 
@@ -83,7 +83,7 @@ def rep_login():
         email = form.email.data
         password = form.password.data
 
-        user = get_rep_by_email(email)
+        user = crud.get_rep_by_email(email)
         if not user or user.password != password:
             return redirect('/rep_login')
 
