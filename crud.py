@@ -36,6 +36,12 @@ def get_rep_by_relationship_id(adv_rep) -> SalesRep:
 def get_relationships_by_rep_id(rep_id):
     return AdvRep.query.filter(AdvRep.rep_id == rep_id)
 
+def get_customers_by_rep_id(rep_id):
+    return Customer.query.filter(Customer.rep_id == rep_id).all()
+
+def get_customer_by_cust_id(cust_id):
+    return Customer.query.filter(Customer.cust_id == cust_id).first()
+
 def get_rep_by_rep_id(rep_id):
     return SalesRep.query.filter(SalesRep.rep_id == rep_id).first()
 

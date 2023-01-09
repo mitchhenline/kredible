@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Kredible{% endblock %}
+
+{% block body %}
+
+
+<h3>{{ customer.first_name }} {{ customer.last_name }} || {{ customer.company }}</h3>
+<h4>{{ customer.email }}</h4>
+<h4>{{ customer.phone_number }}</h4>
+
+
+
+<a href="/rep">Back</a>
+<br>
+<a class= "logout" href="/adv_logout">Logout</a>
+
+{% endblock %}
+
+{% block after_body %}{% endblock %}

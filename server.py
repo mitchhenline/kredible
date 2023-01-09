@@ -63,11 +63,15 @@ def rep_home():
         return redirect('/rep_login')
 
 
+    customers = crud.get_customers_by_rep_id(session['rep_id'])
+
     relationships = crud.get_relationships_by_rep_id(session['rep_id']) #grabs a list of relationships for user
     sales_advs = [] #empty list
     for relationship in relationships:              #grabs the sales advocates from the relationship and puts into list
         sales_advs.append(relationship.sales_adv)
-    return render_template('rep.html', sales_advs = sales_advs)
+    return render_template('rep.html', sales_advs = sales_advs, customers = customers)
+
+    
 
 
 @app.route('/rep_login', methods=["GET", "POST"])
@@ -127,6 +131,16 @@ def view_ind_adv(adv_id):
     adv = crud.get_adv_by_adv_id(adv_id)
     return render_template('view_ind_adv.html', message_list = message_list, adv = adv)
 
+####################### SALES REP VIEW PROSPECT PAGE #############################
+
+@app.route('/rep/customer/<cust_id>')
+def view_ind_cust(cust_id):
+    """view customer information"""
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
+
+    customer = crud.get_customer_by_cust_id(cust_id)
+    return render_template('view_ind_cust.html', customer = customer)
 
 
 if __name__ == "__main__":
