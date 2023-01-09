@@ -26,7 +26,11 @@ def advocate_home():
         return redirect('/advocate_login')
 
     relationships = crud.get_relationships_by_adv_id(session['adv_id'])
-    return render_template('advocate.html', relationships = relationships)
+    sales_reps = []
+    for relationship in relationships:
+        sales_reps.append(relationship.sales_rep)
+
+    return render_template('advocate.html', sales_reps = sales_reps)
 
 @app.route('/advocate_login', methods=["GET", "POST"])
 def adv_login():
@@ -58,8 +62,12 @@ def rep_home():
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
+
     relationships = crud.get_relationships_by_rep_id(session['rep_id'])
-    return render_template('rep.html', relationships = relationships)
+    sales_advs = []
+    for relationship in relationships:
+        sales_advs.append(relationship.sales_adv)
+    return render_template('rep.html', sales_advs = sales_advs)
 
 
 @app.route('/rep_login', methods=["GET", "POST"])
@@ -86,7 +94,7 @@ def rep_logout():
     del session['rep_id']
     return redirect("/rep_login")
 
-####################### ADVOCATE NAVIGATE REPS PAGE #############################
+####################### ADVOCATE VIEW INDIVIDUAL REP PAGE #############################
 
 @app.route('/advocate/<rep_id>')
 def view_ind_rep(rep_id):
@@ -97,7 +105,7 @@ def view_ind_rep(rep_id):
     rep = crud.get_rep_by_rep_id(rep_id)
     return render_template('view_ind_rep.html')
 
-####################### SALES REP NAVIGATE ADVS PAGE #############################
+####################### SALES REP VIEW INDIVIDUAL ADV PAGE #############################
 
 @app.route('/rep/<adv_id>')
 def view_ind_adv(adv_id):
