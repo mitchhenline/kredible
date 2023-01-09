@@ -63,9 +63,9 @@ def rep_home():
         return redirect('/rep_login')
 
 
-    relationships = crud.get_relationships_by_rep_id(session['rep_id'])
-    sales_advs = []
-    for relationship in relationships:
+    relationships = crud.get_relationships_by_rep_id(session['rep_id']) #grabs a list of relationships for user
+    sales_advs = [] #empty list
+    for relationship in relationships:              #grabs the sales advocates from the relationship and puts into list
         sales_advs.append(relationship.sales_adv)
     return render_template('rep.html', sales_advs = sales_advs)
 
@@ -113,9 +113,16 @@ def view_ind_adv(adv_id):
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
-    adv = crud.get_adv_by_adv_id(adv_id)
-    return render_template('view_ind_adv.html')
+    messages = crud.get_messages_by_adv_id(adv_id)
+    message_list = []
+    for message in messages:
+        message_list.append(message.message)
 
+    
+    adv = crud.get_adv_by_adv_id(adv_id)
+    print(adv)
+
+    return render_template('view_ind_adv.html', message_list = message_list, adv_id = adv_id, adv = adv)
 
 
 

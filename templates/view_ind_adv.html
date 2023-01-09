@@ -6,9 +6,14 @@
 
 <p>You are logged in as a sales rep.</p>
 
-<h3>Your Sales Advocates</h3>
+
 <div>
-    <h1>template rendering</h1>
+    <h3>Messages with {{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h3>
+    {% for message in message_list %}
+                <p>
+                    {{ message }}
+                </p><br>
+    {% endfor %}
 </div>
 
 

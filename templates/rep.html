@@ -12,9 +12,8 @@
 <div>
     {% for sales_adv in sales_advs %}
                 <a href="/rep/{{ sales_adv.adv_id }}">
-                     {{ sales_adv.first_name }}
-                     {{ sales_adv.last_name }}
-                     {{ sales_adv.company }}
+                     Sales Advocate: {{ sales_adv.first_name }} {{ sales_adv.last_name }}
+                     || Company: {{ sales_adv.company }}
                 </a><br>
     {% endfor %}
 </div>

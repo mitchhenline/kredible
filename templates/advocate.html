@@ -10,9 +10,8 @@
 <div>
     {% for sales_rep in sales_reps %}
                 <a href="/advocate/{{ sales_rep.rep_id }}">
-                     {{ sales_rep.first_name }}
-                     {{ sales_rep.last_name }}
-                     {{ sales_rep.company }}
+                     Connection: {{ sales_rep.first_name }} {{ sales_rep.last_name }}
+                     || Company: {{ sales_rep.company }}
                 </a><br>
     {% endfor %}
 </div>

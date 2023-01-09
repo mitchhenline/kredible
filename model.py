@@ -35,7 +35,7 @@ class SalesAdv(db.Model):
     phone_number = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'User: adv_id={self.rep_id} Name={self.last_name, self.first_name} Company={self.company}'
+        return f'User: adv_id={self.adv_id} Name={self.last_name, self.first_name} Company={self.company}'
 
 class Customer(db.Model):
     """Potential customers of the sales representatives. Not a site user, intended to be primarily information."""
