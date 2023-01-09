@@ -102,8 +102,13 @@ def view_ind_rep(rep_id):
     if 'adv_id' not in session:
         return redirect('/advocate_login')
 
+    messages = crud.get_messages_by_rep_id(rep_id)
+    message_list = []
+    for message in messages:
+        message_list.append(message.message)
+
     rep = crud.get_rep_by_rep_id(rep_id)
-    return render_template('view_ind_rep.html')
+    return render_template('view_ind_rep.html', message_list = message_list, rep = rep)
 
 ####################### SALES REP VIEW INDIVIDUAL ADV PAGE #############################
 
@@ -120,9 +125,7 @@ def view_ind_adv(adv_id):
 
     
     adv = crud.get_adv_by_adv_id(adv_id)
-    print(adv)
-
-    return render_template('view_ind_adv.html', message_list = message_list, adv_id = adv_id, adv = adv)
+    return render_template('view_ind_adv.html', message_list = message_list, adv = adv)
 
 
 

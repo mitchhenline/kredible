@@ -42,6 +42,8 @@ def get_rep_by_rep_id(rep_id):
 def get_adv_by_adv_id(adv_id):
     return SalesAdv.query.filter(SalesAdv.adv_id == adv_id).first()
     
-
 def get_messages_by_adv_id(adv_id):
     return Messages.query.filter(Messages.adv_id == adv_id).all()
+
+def get_messages_by_rep_id(rep_id):
+    return Messages.query.filter(Messages.rep_id == rep_id).all()
