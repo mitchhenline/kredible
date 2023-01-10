@@ -62,3 +62,9 @@ def get_messages_by_adv_id(adv_id):
 
 def get_messages_by_rep_id(rep_id):
     return Messages.query.filter(Messages.rep_id == rep_id).all()
+
+def get_meetings_by_rep_id(rep_id):
+    return Meeting.query.filter(Meeting.rep_id == rep_id).all()
+
+def get_meeting_by_meeting_id(meeting_id):
+    return Meeting.query.filter(Meeting.meeting_id == meeting_id).first()

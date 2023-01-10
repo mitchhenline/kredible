@@ -8,6 +8,15 @@
 <h2>Welcome, {{ user.first_name }}.</h2>
 </div>
 
+<h3>Upcoming Meetings</h3>
+<div>
+    {% for meeting in meetings %}
+        <a href="/rep/meeting/{{ meeting.meeting_id }}">
+            {{ meeting }}
+        </a>           
+    {% endfor %}
+</div>
+
 <h3>Your Sales Advocates</h3>
 <div>
     {% for sales_adv in sales_advs %}

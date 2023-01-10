@@ -66,11 +66,20 @@ def rep_home():
     form = AddCustomer(request.form)
     customers = crud.get_customers_by_rep_id(session['rep_id'])
     user = crud.get_rep_by_rep_id(session['rep_id'])
-    relationships = crud.get_relationships_by_rep_id(session['rep_id']) #grabs a list of relationships for user
-    sales_advs = [] #empty list
+
+    relationships = crud.get_relationships_by_rep_id(session['rep_id'])
+    sales_advs = []
+
+    meetings = crud.get_meetings_by_rep_id(session['rep_id'])
+    
+
+
+
     for relationship in relationships:              #grabs the sales advocates from the relationship and puts into list
         sales_advs.append(relationship.sales_adv)
-    return render_template('rep.html', sales_advs = sales_advs, customers = customers, user = user, form = form)
+
+
+    return render_template('rep.html', sales_advs = sales_advs, customers = customers, user = user, form = form, meetings = meetings)
 
 @app.route('/rep', methods =['POST'])
 def add_customer():
@@ -149,6 +158,18 @@ def view_ind_adv(adv_id):
     
     adv = crud.get_adv_by_adv_id(adv_id)
     return render_template('view_ind_adv.html', message_list = message_list, adv = adv)
+
+####################### SALES REP VIEW INDIVIDUAL MEETING PAGE #############################
+
+@app.route('/rep/meeting/<meeting_id>')
+def view_ind_mtg(meeting_id):
+    """view meeting information"""
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
+
+    meeting = crud.get_meeting_by_meeting_id(meeting_id)
+    return render_template('view_ind_meeting.html', meeting = meeting)
+
 
 ####################### SALES REP VIEW PROSPECT PAGE #############################
 
