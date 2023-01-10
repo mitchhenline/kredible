@@ -4,14 +4,18 @@
 
 {% block body %}
 
-<p>You are logged in as a sales rep.</p>
+<h2>Meeting Info</h2>
 
 
 <div>
-    <h3>{{ meeting }}</h3>
-    <h2>{{ meeting.meeting_link }}</h2>
+    <h3>Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} || {{ meeting.sales_adv['company'] }}</h3>
+    <h3>Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
+    <h3>Date: {{ meeting.date }}</h3>
+    <h3>Time: {{ meeting.date }}</h3>
+    <h3><a href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
 </div>
 
+<br>
 
 <a href="/rep">
     Back

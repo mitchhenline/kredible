@@ -12,7 +12,7 @@
 <div>
     {% for meeting in meetings %}
         <a href="/rep/meeting/{{ meeting.meeting_id }}">
-            {{ meeting }}
+            {{ meeting.date }} at {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
         </a>           
     {% endfor %}
 </div>
