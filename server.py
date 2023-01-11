@@ -51,10 +51,15 @@ def adv_login():
         return redirect('/advocate')
     return render_template("advocate_login.html", form=form)
 
+
 @app.route('/adv_logout')
 def adv_logout():
     del session['adv_id']
     return redirect("/advocate_login")
+
+@app.route('/register')
+def register():
+    return render_template('/register.html')
 
 ####################### SALES REP LOG-IN AND LOG-OUT, HOME PAGE #############################
 
