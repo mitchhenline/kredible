@@ -5,14 +5,14 @@
 {% block body %}
 
 <div>
-<h2>Welcome, {{ user.first_name }}.</h2>
+    <h2>Welcome, {{ user.first_name }}.</h2>
 </div>
 
 <h3>Upcoming Meetings</h3>
 <div>
     {% for meeting in meetings %}
         <a href="/rep/meeting/{{ meeting.meeting_id }}">
-            {{ meeting.date }} at {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+            {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
         </a>           
     {% endfor %}
 </div>
@@ -39,7 +39,6 @@
 <br>
 
 <h4>Add a new prospect:</h4>
-
 <div>
     <form method="POST" action="/rep">
         <div class="form-input">{{ form.first_name.label }}: {{ form.first_name }}</div>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Kredible - Meeting Info{% endblock %}
+
+{% block body %}
+
+<h2>Meeting Info</h2>
+
+
+<div>
+    <h3>Rep: {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }} || {{ meeting.sales_rep['company'] }}</h3>
+    <h3>Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
+    <h3>Date: {{ meeting.date }}</h3>
+    <h3>Time: {{ meeting.date }}</h3>
+    <h3>!!! would be good to add meeting notes to model and display here !!!</h3>
+    <h3><a href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
+</div>
+
+<br>
+
+<a href="/rep">
+    Back
+</a>
+<br>
+<a class= "logout" href="/rep_logout">Logout</a>
+
+
+{% endblock %}
