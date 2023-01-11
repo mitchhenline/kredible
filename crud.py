@@ -1,5 +1,5 @@
 """CRUD operations"""
-from model import db, SalesAdv, SalesRep, Customer, AdvRep, Meeting, Messages, Calendar
+from model import db, SalesAdv, SalesRep, Customer, AdvRep, Meeting, Messages
 
 def create_sales_rep(email, password, first_name, last_name, company, phone_number):
     sales_rep = SalesRep(
@@ -21,13 +21,14 @@ def create_sales_adv(email, password, first_name, last_name, company, phone_numb
         phone_number=phone_number)
     return sales_adv
 
-def create_customer(first_name, last_name, email, company, phone_number):
+def create_customer(first_name, last_name, email, company, phone_number, notes):
     customer = Customer(
         first_name=first_name,
         last_name=last_name,
         email=email,
         company=company,
-        phone_number=phone_number)
+        phone_number=phone_number,
+        notes=notes)
     return customer
 
 def get_adv_by_email(email) -> SalesAdv:

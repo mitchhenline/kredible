@@ -2,6 +2,7 @@
 
 import os, datetime
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -32,7 +33,8 @@ class SalesAdv(db.Model):
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     company = db.Column(db.String(255))
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.String)
+    availability = db.Column(db.Text)
 
     def __repr__(self):
         return f'User: adv_id={self.adv_id} Name={self.last_name, self.first_name} Company={self.company}'
@@ -47,7 +49,8 @@ class Customer(db.Model):
     last_name = db.Column(db.String(255))
     email = db.Column(db.String(255))
     company = db.Column(db.String(255))
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.String)
+    notes = db.Column(db.Text)
     rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
 
     sales_rep = db.relationship("SalesRep", backref="customers")
@@ -74,10 +77,14 @@ class Meeting(db.Model):
 
     meeting_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     date = db.Column(db.DateTime)
+    time = db.Column(db.DateTime)
     meeting_link = db.Column(db.String(255))
+    meeting_prep_notes = db.Column(db.Text)
+    meeting_accepted = db.Column(db.Boolean, default=False)
     cust_id = db.Column(db.Integer, db.ForeignKey("customers.cust_id"))
     adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"))
     rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
+
 
     sales_rep = db.relationship("SalesRep", backref="meetings")
     sales_adv = db.relationship("SalesAdv", backref="meetings")
@@ -89,30 +96,14 @@ class Messages(db.Model):
     __tablename__ = "messages"
 
     message_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    date = db.Column(db.DateTime)
-    message = db.Column(db.String)
-    adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"))
-    rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
+    datetime_created = db.Column(db.DateTime, default=datetime.now())
+    content = db.Column(db.String(255), nullable=False)
+
+    adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"), nullable=False)
+    rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"), nullable=False)
 
     sales_rep = db.relationship("SalesRep", backref="messages")
     sales_adv = db.relationship("SalesAdv", backref="messages")
-
-class Calendar(db.Model):
-    """Sales advocate availability calendar"""
-
-    __tablename__ = "calendar"
-
-    cal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    sunday = db.Column(db.String)
-    monday = db.Column(db.String)
-    tuesday = db.Column(db.String)
-    wednesday = db.Column(db.String)
-    thursday = db.Column(db.String)
-    friday = db.Column(db.String)
-    saturday = db.Column(db.String)
-    adv_id = db.Column(db.Integer, db.ForeignKey("sales_advs.adv_id"))
-
-    sales_adv = db.relationship("SalesAdv", backref="calendar")
 
 def connect_to_db(flask_app, db_uri=os.environ["POSTGRES_URI"], echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri

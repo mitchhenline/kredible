@@ -1,10 +1,10 @@
 """Kredible server."""
 
 from flask import Flask, render_template, request, flash, session, redirect, abort
-from model import connect_to_db, db, Customer
+from model import connect_to_db, db, Customer, Meeting
 from jinja2 import StrictUndefined
 import crud
-from forms import AdvLoginForm, RepLoginForm, AddCustomer
+from forms import AdvLoginForm, RepLoginForm, AddCustomer, RequestMeeting
 
 app = Flask(__name__)
 app.secret_key= "gggc"
@@ -94,6 +94,7 @@ def add_customer():
             email = form.email.data,
             company = form.company.data,
             phone_number = form.phone_number.data,
+            notes = form.notes.data,
             rep_id = session['rep_id']
         )
         db.session.add(customer)
@@ -144,7 +145,7 @@ def view_ind_rep(rep_id):
 
 ####################### SALES REP VIEW INDIVIDUAL ADV PAGE #############################
 
-@app.route('/rep/<adv_id>')
+@app.route('/rep/<adv_id>', methods=['POST', 'GET'])
 def view_ind_adv(adv_id):
     """view sales rep's advocate information'"""
     if 'rep_id' not in session:
@@ -155,9 +156,24 @@ def view_ind_adv(adv_id):
     for message in messages:
         message_list.append(message.message)
 
+    form = RequestMeeting(request.form)
+    if form.validate_on_submit():
+        meeting = Meeting(
+            date = form.date.data,
+            time = form.time.data,
+            meeting_link = form.meeting_link.data,
+            meeting_prep_notes = form.meeting_prep_notes.data,
+            meeting_accepted = False,
+            cust_id = form.cust_id.data,
+            adv_id = adv_id,
+            rep_id = session['rep_id']
+        )
+        db.session.add(meeting)
+        db.session.commit()
+        return redirect('/rep/<adv_id>')
     
     adv = crud.get_adv_by_adv_id(adv_id)
-    return render_template('view_ind_adv.html', message_list = message_list, adv = adv)
+    return render_template('view_ind_adv.html', message_list = message_list, adv = adv, form = form)
 
 ####################### SALES REP VIEW INDIVIDUAL MEETING PAGE #############################
 

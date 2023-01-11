@@ -6,8 +6,33 @@
 
 <p>You are logged in as a sales rep.</p>
 
+<h1>Kredible</h1>
+
+<h2>Advocate: {{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h2>
+
 <div>
-    <h3>Messages with {{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h3>
+    <h3>Request meeting with {{ adv.first_name }} {{ adv.last_name }}</h3>
+    <form class="request-mtg-form"method="POST" action='/rep/{adv_id}'>
+        <div> {{ form.date.label }}: {{ form.date }} </div>
+        <div> {{ form.time.label }}: {{ form.time }}</div>
+        <div> {{ form.meeting_link.label }}: {{ form.meeting_link }}</div>
+        <div> {{ form.cust_id.label }}: {{ form.cust_id }}</div>
+        <div> {{ form.meeting_prep_notes.label }}: {{ form.meeting_prep_notes }} </div>
+        {{ form.csrf_token }}
+        <button id="request-meeting-submit-btn" class ="btn btn-primary" type="submit">Request Meeting</button>
+    </form>
+</div>
+
+<div>
+    <h3>Upcoming meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
+</div>
+
+<div>
+    <h3>Completed meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
+</div>
+
+<div>
+    <h3>Your messages with {{ adv.first_name }} {{ adv.last_name }}</h3>
     {% for message in message_list %}
                 <p>
                     {{ message }}
