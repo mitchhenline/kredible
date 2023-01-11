@@ -22,5 +22,14 @@ class RequestMeeting(FlaskForm):
     time=TimeField('Time ')
     meeting_link=StringField('Meeting link ', [validators.InputRequired()])
     meeting_prep_notes=TextAreaField('Meeting Notes ')
-    cust_id=SelectField('Customer ', [validators.DataRequired()])
+    cust_id=SelectField('Customer ', choices=[('4',"Steve Broderick"), ('3', "Taylor Swift")])
+
+
+
+# ------select field isn't populating choices-------
+# this is what needs to go in the [] in line 25
+# choices=[('option1', 'Option 1'), ('option2', 'Option 2'), ('option3', 'Option 3')])
+# first element is value, second element is what will be displayed
+# will need to look like ths
+# ('customers.cust_id', 'customers.first_name customers.last_name')
     
