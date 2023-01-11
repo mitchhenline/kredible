@@ -3,7 +3,8 @@
 {% block title %}Log In to Kredible{% endblock %}
 
 {% block body %}
-<h1>rep login</h1>
+<h1><a href="/">Kredible</a></h1>
+<h2>rep login</h2>
 <form class="rep-login-form"method="POST" action="/rep_login">
     <div id="rep-login-email-box">{{ form.email.label }}: {{ form.email }}</div>
     <div id="rep-login-password-box">{{ form.password.label }}: {{ form.password }}</div>
@@ -15,7 +16,7 @@
 <br>
 <a href="/advocate">I'm a Sales Advocate</a>
 <br>
-<a href="/">Back Home</a>
+
 
 {% endblock %}
 

@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, flash, session, redirect, abo
 from model import connect_to_db, db, Customer
 from jinja2 import StrictUndefined
 import crud
-from crud import get_rep_by_rep_id
 from forms import AdvLoginForm, RepLoginForm, AddCustomer
 
 app = Flask(__name__)
