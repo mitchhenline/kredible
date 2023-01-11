@@ -22,7 +22,7 @@
     {% for sales_adv in sales_advs %}
                 <a href="/rep/{{ sales_adv.adv_id }}">
                      {{ sales_adv.first_name }} {{ sales_adv.last_name }}
-                     || Company: {{ sales_adv.company }}
+                     || {{ sales_adv.company }}
                 </a><br>
     {% endfor %}
 </div>
@@ -32,7 +32,7 @@
     {% for customer in customers %}
                 <a href="/rep/customer/{{ customer.cust_id }}">
                      {{ customer.first_name }} {{ customer.last_name }}
-                     || Company: {{ customer.company }}
+                     || {{ customer.company }}
                 </a><br>
     {% endfor %}
 </div>
