@@ -3,6 +3,7 @@
 import os, datetime
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from sqlalchemy import func
 
 db = SQLAlchemy()
 
@@ -77,7 +78,7 @@ class Meeting(db.Model):
 
     meeting_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     date = db.Column(db.DateTime)
-    time = db.Column(db.DateTime)
+    time = db.Column(db.String)  #change to time later, can't pass in the right format with DateTime(timezone=True), server_default=func.now()
     meeting_link = db.Column(db.String(255))
     meeting_prep_notes = db.Column(db.Text)
     meeting_accepted = db.Column(db.Boolean, default=False)

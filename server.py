@@ -165,7 +165,7 @@ def request_meeting(adv_id):
     """view sales rep's advocate information'"""
     if 'rep_id' not in session:
         return redirect('/rep_login')
-    
+    adv = crud.get_adv_by_adv_id(adv_id)
 
     form = RequestMeeting(request.form)
     if form.validate_on_submit():
@@ -179,17 +179,19 @@ def request_meeting(adv_id):
             adv_id = adv_id,
             rep_id = session['rep_id']
         )
-
+        print("made it through validate form")
         db.session.add(meeting)
         db.session.commit()
         return redirect(f'/rep/{adv_id}')
+    else:
+        print(form.errors)
 
     messages = crud.get_messages_by_adv_id(adv_id)
     message_list = []
     for message in messages:
         message_list.append(message.message)
     
-    adv = crud.get_adv_by_adv_id(adv_id)
+    print('FORM DID NOT VALIDATE')
     return render_template('view_ind_adv.html', form = form, adv = adv, message_list = message_list)
 
 ####################### SALES REP VIEW INDIVIDUAL MEETING PAGE #############################

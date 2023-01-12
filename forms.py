@@ -19,10 +19,11 @@ class AddCustomer(FlaskForm):
 
 class RequestMeeting(FlaskForm):
     date=DateField('Date ')
-    time=TimeField('Time ')
+    time=StringField('Time ')
+    # time=TimeField('Time ', format='%I:%M:%p') format I had that isn't working
     meeting_link=StringField('Meeting link ', [validators.InputRequired()])
     meeting_prep_notes=TextAreaField('Meeting Notes ')
-    cust_id=SelectField('Customer ', choices=[('4',"Steve Broderick"), ('3', "Taylor Swift")])
+    cust_id=SelectField('Customer ', choices=[('2',"Adam Lazarra"), ('3', "Taylor Swift")])
 
 
 
