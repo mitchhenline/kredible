@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, flash, session, redirect, abo
 from model import connect_to_db, db, Customer, Meeting
 from jinja2 import StrictUndefined
 import crud
-from forms import AdvLoginForm, RepLoginForm, AddCustomer, RequestMeeting
+from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc
 
 app = Flask(__name__)
 app.secret_key= "gggc"
@@ -155,10 +155,11 @@ def view_ind_adv(adv_id):
     message_list = []
     for message in messages:
         message_list.append(message.message)
+    meetings = crud.get_meetings_by_adv_id(adv_id)
     
     adv = crud.get_adv_by_adv_id(adv_id)
-    form = RequestMeeting(request.form)
-    return render_template('view_ind_adv.html', message_list = message_list, adv = adv, form = form)
+    form = MeetingFunc(session['rep_id'])
+    return render_template('view_ind_adv.html', message_list = message_list, adv = adv, form = form, meetings=meetings)
 
 @app.route('/rep/<int:adv_id>', methods=['POST'])
 def request_meeting(adv_id):
@@ -167,7 +168,7 @@ def request_meeting(adv_id):
         return redirect('/rep_login')
     adv = crud.get_adv_by_adv_id(adv_id)
 
-    form = RequestMeeting(request.form)
+    form = MeetingFunc(session['rep_id'])
     if form.validate_on_submit():
         meeting = Meeting(
             date = form.date.data,
@@ -190,9 +191,10 @@ def request_meeting(adv_id):
     message_list = []
     for message in messages:
         message_list.append(message.message)
+    meetings = crud.get_meetings_by_adv_id(adv_id)
     
     print('FORM DID NOT VALIDATE')
-    return render_template('view_ind_adv.html', form = form, adv = adv, message_list = message_list)
+    return render_template('view_ind_adv.html', form = form, adv = adv, message_list = message_list, meetings = meetings)
 
 ####################### SALES REP VIEW INDIVIDUAL MEETING PAGE #############################
 

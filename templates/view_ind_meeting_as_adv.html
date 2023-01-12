@@ -12,17 +12,18 @@
     <h3>Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
     <h3>Date: {{ meeting.date }}</h3>
     <h3>Time: {{ meeting.time }}</h3>
-    <h3>!!! would be good to add meeting notes to model and display here !!!</h3>
+    <h3>Notes from {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }}:</h3>
+    <p>{{ meeting.meeting_prep_notes }}</p>
     <h3><a href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
 </div>
 
 <br>
 
-<a href="/rep">
+<a href="/adv">
     Back
 </a>
 <br>
-<a class= "logout" href="/rep_logout">Logout</a>
+<a class= "logout" href="/adv_logout">Logout</a>
 
 
 {% endblock %}

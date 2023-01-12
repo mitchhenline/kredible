@@ -27,7 +27,13 @@
 
 <div>
     <h3>Upcoming meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
-    
+    {% for meeting in meetings %}
+        <a href="/rep/meeting/{{ meeting.meeting_id }}">
+            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+        </a>
+        <br>  
+    {% endfor %}
+</div>
 </div>
 
 <div>
