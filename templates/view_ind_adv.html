@@ -11,7 +11,7 @@
 <h2>Advocate: {{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h2>
 
 <div>
-    <h4>Availability:</h4>
+    <h3>Availability:</h3>
     <p>{{ adv.availability }}</p>
     <h3>Request meeting with {{ adv.first_name }} {{ adv.last_name }}</h3>
     <form class="request-mtg-form"method="POST" action="/rep/{{ adv.adv_id }}">
@@ -27,11 +27,24 @@
 
 <div>
     <h3>Upcoming meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
+    <h4>Requested</h4>
     {% for meeting in meetings %}
-        <a href="/rep/meeting/{{ meeting.meeting_id }}">
-            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
-        </a>
-        <br>  
+        {% if not meeting.meeting_accepted %}
+            <a href="/rep/meeting/{{ meeting.meeting_id }}">
+                {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+            </a>
+            <br>  
+        {% endif %}
+    {% endfor %}
+
+    <h4>Accepted</h4>
+    {% for meeting in meetings %}
+        {% if meeting.meeting_accepted %}
+            <a href="/rep/meeting/{{ meeting.meeting_id }}">
+                {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+            </a>
+            <br>  
+        {% endif %}
     {% endfor %}
 </div>
 </div>

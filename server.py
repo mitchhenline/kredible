@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, flash, session, redirect, abo
 from model import connect_to_db, db, Customer, Meeting
 from jinja2 import StrictUndefined
 import crud
-from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc
+from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc, AcceptMeeting
 
 app = Flask(__name__)
 app.secret_key= "gggc"
@@ -32,7 +32,18 @@ def advocate_home():
     for relationship in relationships:
         sales_reps.append(relationship.sales_rep)
 
-    return render_template('advocate.html', sales_reps = sales_reps, user = user, meetings = meetings)
+    form = AcceptMeeting()
+    return render_template('advocate.html', sales_reps = sales_reps, user = user, meetings = meetings, form = form)
+
+@app.route('/accept_meeting/<int:meeting_id>', methods=['POST'])
+def accept_meeting(meeting_id):
+    form = AcceptMeeting()
+    if form.validate_on_submit():
+        meeting = crud.get_meeting_by_meeting_id(meeting_id)
+        meeting.meeting_accepted = form.meeting_accepted.data
+        db.session.add(meeting)
+        db.session.commit()
+    return redirect('/advocate')
 
 @app.route('/advocate_login', methods=["GET", "POST"])
 def adv_login():

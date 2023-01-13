@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, validators, TextAreaField, DateField, TimeField, SelectField
+from wtforms import PasswordField, StringField, validators, TextAreaField, DateField, TimeField, SelectField, BooleanField
 from model import Customer
 
 class AdvLoginForm(FlaskForm):
@@ -28,3 +28,6 @@ def MeetingFunc(rep_id):
         choices = [ (c.cust_id, c.first_name +" "+ c.last_name) for c in Customer.query.filter_by(rep_id = rep_id).all()]
         cust_id=SelectField('Customer ', choices=choices)
     return RequestMeeting()
+
+class AcceptMeeting(FlaskForm):
+    meeting_accepted=BooleanField('Accept')

@@ -8,22 +8,40 @@
     <h2>Welcome, {{ user.first_name }}.</h2>
 </div>
 
-<h3>Meeting Requests</h3>
 <div>
-    {% for meeting in meetings %}
-        <a href="/adv/meeting/{{ meeting.meeting_id }}">
-            {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
-        </a>           
-    {% endfor %}
+<h2>Your Meetings</h2>
+    <div>
+    <h3>Meeting Requests</h3>
+        {% for meeting in meetings %}
+            {% if not meeting.meeting_accepted %}
+                <a href="/adv/meeting/{{ meeting.meeting_id }}">
+                    {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
+                </a>
+                <form method="post" action="/accept_meeting/{{ meeting.meeting_id }}">
+                    {{ form.meeting_accepted }}
+                    {{ form.csrf_token }}
+                    <button id="button-font" class ="btn btn-primary" type="submit">Accept Meeting</button>
+                </form>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h3>Accepted Meetings</h3>
+    <div>
+        {% for meeting in meetings %}
+            {% if meeting.meeting_accepted %}
+                <a href="/adv/meeting/{{ meeting.meeting_id }}">
+                    {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
+                </a>     
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
 
-<h3>Accepted Meetings</h3>
 <div>
-    <p>!!! ADD ACCEPTED MEETINGS BOOLEAN TO MODEL AND ADD HERE !!!</p>
-</div>
-
-<h3>Your Connections</h3>
-<div>
+<h2>Your Connections</h2>
     {% for sales_rep in sales_reps %}
                 <a href="/advocate/{{ sales_rep.rep_id }}">
                      Connection: {{ sales_rep.first_name }} {{ sales_rep.last_name }}
