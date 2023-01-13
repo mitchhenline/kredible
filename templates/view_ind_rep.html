@@ -6,6 +6,10 @@
 
 <p>You are logged in as an advocate.</p>
 
+<h2>Representative: {{ rep.first_name }} {{ rep.last_name }} of {{ rep.company }}</h2>
+<h4>Email: {{ rep.email }}</h4>
+<h4>Phone: {{ rep.phone_number }}</h4>
+
 <div>
     <h3>Messages with {{ rep.first_name }} {{ rep.last_name }} of {{ rep.company }}</h3>
     {% for message in message_list %}

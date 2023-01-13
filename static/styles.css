@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+}
+
+.column {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 33%;
+}
+
+.first-column {
+    grid-column: 1/2;
+}
+
+.second-column {
+    grid-column: 2/3;
+}
+
+.third-column {
+    grid-column: 3/4;
+}

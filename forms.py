@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, validators, TextAreaField, DateField, TimeField, SelectField, BooleanField
-from model import Customer
+from model import Customer, SalesRep, SalesAdv
 
 class AdvLoginForm(FlaskForm):
     email = StringField('Email ', [validators.InputRequired()])
@@ -28,6 +28,17 @@ def MeetingFunc(rep_id):
         choices = [ (c.cust_id, c.first_name +" "+ c.last_name) for c in Customer.query.filter_by(rep_id = rep_id).all()]
         cust_id=SelectField('Customer ', choices=choices)
     return RequestMeeting()
+
+# def MeetingFuncCust(rep_id):
+#     class RequestMeetingCust(FlaskForm):
+#         date=DateField('Date ')
+#         time=StringField('Time ')
+#         # time=TimeField('Time ', format='%I:%M:%p') format I had that isn't working
+#         meeting_link=StringField('Meeting link ', [validators.InputRequired()])
+#         meeting_prep_notes=TextAreaField('Meeting Notes ')
+#         choices = [ (c.adv_id, c.first_name +" "+ c.last_name) for c in SalesAdv.query.filter_by(sales_rep['rep_id'] == rep_id).all()]
+#         adv_id=SelectField('Advocate ', choices=choices)
+#     return RequestMeetingCust()           ######choices line is holding this function back####
 
 class AcceptMeeting(FlaskForm):
     meeting_accepted=BooleanField('Accept')
