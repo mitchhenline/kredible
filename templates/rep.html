@@ -10,7 +10,8 @@
                 
 
 <div class="container">
-    <div class="column first-column">
+
+    <div class="rep-column first-column">
     <h3>Upcoming Meetings</h3>
         <h4>Requested</h4>
         {% for meeting in meetings %}
@@ -38,8 +39,9 @@
 
 
 
-    <div class="column second-column">
+    <div class="rep-column second-column">
         <h3>Your Sales Advocates</h3>
+        <p>Click on an advocate's name below to request a meeting:</p>
         {% for sales_adv in sales_advs %}
                     <a href="/rep/{{ sales_adv.adv_id }}">
                         {{ sales_adv.first_name }} {{ sales_adv.last_name }}
@@ -53,7 +55,7 @@
 
 
 
-    <div class="column third-column">
+    <div class="rep-column third-column">
         <h3>Your Prospects</h3>
         <div>
             {% for customer in customers %}
@@ -80,6 +82,7 @@
         </div>
         <br>
     </div>
+    
 </div>
 
 

@@ -2,7 +2,19 @@
     display: flex;
 }
 
-.column {
+/* ADV CSS */
+
+.adv-column {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 50%;
+}
+
+
+/* REP CSS */
+
+.rep-column {
     border-style: solid;
     border-color: red;
     border-width: 1px;
