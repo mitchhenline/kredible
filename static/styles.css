@@ -6,20 +6,96 @@ font-ref {
 .container-green {
     background-color: #81b29a;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 100px;
     margin-left: 0px;
 }
+
+
+/* ////////////////////////////////////////////////// */
+/* ///////////////NAVIGATION///////////////////////// */
+/* ////////////////////////////////////////////////// */
+
+#navigation {
+    background-color: rgba(255, 255, 255, .9);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    position:sticky;
+    top: 0px;
+    margin: 0px;
+    border-bottom: solid;
+    border-color: #81b29a;
+    border-width: 1px;
+}
+
+#main-title {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    left: 10%;
+    font-size: 200%;
+    color: #81b29a;
+    text-decoration: none;
+}
+
+.logout {
+    text-decoration: none;
+    position:absolute;
+    right: 10%;
+    color:#81b29a;
+}
+
+.logout:hover {
+    color:black;
+}
+
+/* ////////////////////////////////////////////////// */
+/* ////////////WELCOME CONTAINER SECTION///////////// */
+/* ////////////////////////////////////////////////// */
+
+.container-top {
+    padding: 10px;
+    text-align: left;
+}
+
+.welcome-font {
+    font-family: 'Mulish', sans-serif;
+}
+
+#welcome-name {
+    font-family: 'Kanit', sans-serif;
+    font-size: 250%;
+    color:#81b29a;
+}
+
+#page-desc {
+    font-size: 200%;
+    align-items: right;
+}
+
+
+
+
+
+
+
+
 
 .two-box-container {
     display: flex;
     padding: 25px;
 }
 
+.rep-column.sales-adv-column {
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+
 .container-white {
-    display: flex;
     background-color: #ffffff;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 100px;
     margin-left: 0px;
     align-items: center;
 }
@@ -42,43 +118,36 @@ font-ref {
     font-family: 'Mulish', sans-serif;
     color:black;
     margin-top: 5px;
+    font-size: 125%;
 }
 
 .link-font {
-    font-family: 'Newsreader';
+    font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:#81b29a;
+    font-size: 110%;
 }
 
 .link-font:hover {
     color: black;
 }
 
-/* NAV BARS */
-
-#navigation {background-color: rgba(255, 255, 255);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 80px;
-    position:sticky;
-    top: 0px;
-    margin: 0px;
-    
-
-}
-
-#main-title {
-    font-family: 'Mulish', sans-serif;
-    font-weight: 700;
-    position:absolute;
-    left: 10%;
-    font-size: 200%;
-    color: #81b29a;
+.link-font-white {
+    font-family: 'Mulish' sans-serif;
     text-decoration: none;
+    color:#ffffff;
+    font-size: 110%;
 }
 
-/* ADV CSS */
+.link-font-white:hover {
+    color: black;
+}
+
+
+
+
+
+
 
 .adv-column {
     border-style: solid;
@@ -89,11 +158,8 @@ font-ref {
     margin: 15px;
 }
 
-
-/* REP CSS */
-
 .rep-column {
-    background-color: rgba(255, 255, 255);
+    background-color:#81b29a;
     border-width: 1px;
     width: 50%;
     padding: 15px;
@@ -110,8 +176,4 @@ font-ref {
 
 .third-column {
     grid-column: 3/4;
-}
-
-.sales-adv-column {
-    width: 50%;
 }

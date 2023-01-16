@@ -4,27 +4,27 @@
 
 {% block body %}
 
-<div>
-    <h2>Welcome, {{ user.first_name }}.</h2>
+<nav id="navigation">
+    <a id="main-title" href="/"><img src="/img/logo.png" alt="Kredible"></a>
+    <a class= "logout" href="/rep_logout">Log Out</a>
+</nav>
+
+<div class="container-top">
+    <h2 id="welcome-name" class="welcome-font">Welcome, {{ user.first_name }}.</h2>
+    <h4 id="page-desc" class="welcome-font">Engage customer advocates.<br>Schedule reference calls.<br>Close more deals.</h4>
 </div>
                 
 
 
-
-
-
-
-
-
-<div class="container-green">
-    <h3 class="in-con-title-white">Upcoming Meetings</h3>
+<div class="container-white">
+    <h3 class="in-con-title-green">Upcoming Meetings</h3>
 
     <div class="two-box-container">
         <div class="rep-column first-column">
             <h4 class="in-con-sub-title">Requested</h4>
             {% for meeting in meetings %}
                 {% if not meeting.meeting_accepted %}
-                    <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
+                    <a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                     </a>
                     <br>  
@@ -36,7 +36,7 @@
             <h4 class="in-con-sub-title">Accepted</h4>
             {% for meeting in meetings %}
                 {% if meeting.meeting_accepted %}
-                    <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
+                    <a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                     </a>
                     <br>  
@@ -52,15 +52,11 @@
 
 
 
+<div class="container-green">
 
-
-
-
-<div class="container-white">
-
+    <h3 class="in-con-title-white">Your Sales Advocates</h3>
     <div class="rep-column sales-adv-column">
-        <h3 class="in-con-title-green">Your Sales Advocates</h3>
-        <p class="in-con-sub-title">Click on an advocate's name below to request a meeting:</p>
+        <h4 class="in-con-sub-title">Click on an advocate below to request a meeting:</h4>
         {% for sales_adv in sales_advs %}
                     <a class="link-font" href="/rep/{{ sales_adv.adv_id }}">
                         {{ sales_adv.first_name }} {{ sales_adv.last_name }}
@@ -71,15 +67,19 @@
 
 </div>
 
-<div class="container-green">
 
-    <h3 class="in-con-title-white">Your Prospects</h3>
+
+
+
+<div class="container-white">
+
+    <h3 class="in-con-title-green">Your Prospects</h3>
     <div class="two-box-container">
         <div class="rep-column first-column">
             <h4 class="in-con-sub-title">Current Prospects</h4>
             <div>
                 {% for customer in customers %}
-                            <a class="link-font" href="/rep/customer/{{ customer.cust_id }}">
+                            <a class="link-font-white" href="/rep/customer/{{ customer.cust_id }}">
                                 {{ customer.first_name }} {{ customer.last_name }}
                                 || {{ customer.company }}
                             </a><br>
@@ -108,10 +108,6 @@
 </div>
 
 
-
-
-
-<a class= "logout" href="/rep_logout">Logout</a>
 
 {% endblock %}
 
