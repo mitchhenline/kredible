@@ -9,38 +9,57 @@
 </div>
                 
 
-<div class="container">
 
-    <div class="rep-column first-column">
-    <h3 class="in-con-title">Upcoming Meetings</h3>
-        <h4 class="in-con-sub-title">Requested</h4>
-        {% for meeting in meetings %}
-            {% if not meeting.meeting_accepted %}
-                <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
-                    {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
-                </a>
-                <br>  
-            {% endif %}
-        {% endfor %}
 
-        <h4 h4 class="in-con-sub-title">Accepted</h4>
-        {% for meeting in meetings %}
-            {% if meeting.meeting_accepted %}
-                <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
-                    {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
-                </a>
-                <br>  
-            {% endif %}
-        {% endfor %}
+
+
+
+
+
+<div class="container-green">
+    <h3 class="in-con-title-white">Upcoming Meetings</h3>
+
+    <div class="two-box-container">
+        <div class="rep-column first-column">
+            <h4 class="in-con-sub-title">Requested</h4>
+            {% for meeting in meetings %}
+                {% if not meeting.meeting_accepted %}
+                    <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
+                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+                    </a>
+                    <br>  
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="rep-column second-column">
+            <h4 class="in-con-sub-title">Accepted</h4>
+            {% for meeting in meetings %}
+                {% if meeting.meeting_accepted %}
+                    <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
+                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+                    </a>
+                    <br>  
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    
 </div>
 
 
 
 
-    <div class="rep-column second-column">
-        <h3 class="in-con-title">Your Sales Advocates</h3>
+
+
+
+
+
+
+
+<div class="container-white">
+
+    <div class="rep-column sales-adv-column">
+        <h3 class="in-con-title-green">Your Sales Advocates</h3>
         <p class="in-con-sub-title">Click on an advocate's name below to request a meeting:</p>
         {% for sales_adv in sales_advs %}
                     <a class="link-font" href="/rep/{{ sales_adv.adv_id }}">
@@ -50,40 +69,43 @@
         {% endfor %}
     </div>
 
+</div>
 
+<div class="container-green">
 
-
-
-
-    <div class="rep-column third-column">
-        <h3 class="in-con-title">Your Prospects</h3>
-        <div>
-            {% for customer in customers %}
-                        <a class="link-font" href="/rep/customer/{{ customer.cust_id }}">
-                            {{ customer.first_name }} {{ customer.last_name }}
-                            || {{ customer.company }}
-                        </a><br>
-            {% endfor %}
+    <h3 class="in-con-title-white">Your Prospects</h3>
+    <div class="two-box-container">
+        <div class="rep-column first-column">
+            <h4 class="in-con-sub-title">Current Prospects</h4>
+            <div>
+                {% for customer in customers %}
+                            <a class="link-font" href="/rep/customer/{{ customer.cust_id }}">
+                                {{ customer.first_name }} {{ customer.last_name }}
+                                || {{ customer.company }}
+                            </a><br>
+                {% endfor %}
+            </div>
+            <br>
         </div>
-        <br>
 
-        <h4 h4 class="in-con-sub-title">Add a new prospect:</h4>
-        <div>
-            <form method="POST" action="/rep">
-                <div class="form-input">{{ form.first_name.label }}: {{ form.first_name }}</div>
-                <div class="form-input">{{ form.last_name.label }}: {{ form.last_name }}</div>
-                <div class="form-input">{{ form.email.label }}: {{ form.email }}</div>
-                <div class="form-input">{{ form.company.label }}: {{ form.company }}</div>
-                <div class="form-input">{{ form.phone_number.label }}: {{ form.phone_number }}</div>
-                <div class="form-input">{{ form.notes.label }}: {{ form.notes }}</div>
-                {{ form.csrf_token }}
-                <button id="button-font" class ="btn btn-primary" type="submit">Add Prospect</button>
-            </form>
+        <div class="rep-column second-column">
+            <h4 h4 class="in-con-sub-title">Add a new prospect:</h4>
+            <div>
+                <form method="POST" action="/rep">
+                    <div class="form-input">{{ form.first_name.label }}: {{ form.first_name }}</div>
+                    <div class="form-input">{{ form.last_name.label }}: {{ form.last_name }}</div>
+                    <div class="form-input">{{ form.email.label }}: {{ form.email }}</div>
+                    <div class="form-input">{{ form.company.label }}: {{ form.company }}</div>
+                    <div class="form-input">{{ form.phone_number.label }}: {{ form.phone_number }}</div>
+                    <div class="form-input">{{ form.notes.label }}: {{ form.notes }}</div>
+                    {{ form.csrf_token }}
+                    <button id="button-font" class ="btn btn-primary" type="submit">Add Prospect</button>
+                </form>
+            </div>
+            <br>
         </div>
-        <br>
     </div>
-    
-
+</div>
 
 
 
