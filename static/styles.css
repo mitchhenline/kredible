@@ -177,3 +177,69 @@ font-ref {
 .third-column {
     grid-column: 3/4;
 }
+
+/* ////////////////////////////////////////////////// */
+/* ////////////INDIVIDUAL VIEW BOXES///////////////// */
+/* ////////////////////////////////////////////////// */
+
+.view-box {
+    background-color:#81b29a;
+    padding: 15px;
+    margin: 15px;
+}
+
+.view-box-font {
+    font-family: 'Mulish', sans-serif;
+    text-decoration: none;
+    color:#ffffff;
+    font-size: 110%;
+}
+
+.view-box-link {
+    text-decoration: underline;
+    color:#ffffff;
+    margin-top: 40px;
+}
+
+.view-box-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.back {
+    text-decoration: none;
+    background-color:#81b29a;
+    color: #ffffff;
+    margin-left: 30px;
+    margin-top: 40px;
+    font-family: 'Mulish', sans-serif;
+    border: solid;
+    padding: 4px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color:#81b29a;
+}
+
+.back:hover {
+    color: black;
+    border-color:#000000;
+    background-color: #81b29a;
+}
+
+.notes {
+    font-family: 'Mulish', sans-serif;
+}
+
+/* ////////////////////////////////////////////////// */
+/* ////////////FOOTER//////////////////////////////// */
+/* ////////////////////////////////////////////////// */
+
+.footer {
+    background-color: black;
+    height: 150px;
+}
+
+.footer-text {
+    color:#29322e;
+    text-align: center;
+}

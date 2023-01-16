@@ -4,21 +4,28 @@
 
 {% block body %}
 
-<div>
-    <h2>Welcome, {{ user.first_name }}.</h2>
+<nav id="navigation">
+    <a id="main-title" href="/"><img src="/img/logo.png" alt="Kredible"></a>
+    <a class= "logout" href="/adv_logout">Log Out</a>
+</nav>
+
+<div class="container-top">
+    <h2 id="welcome-name" class="welcome-font">Welcome, {{ user.first_name }}.</h2>
+    <h4 id="page-desc" class="welcome-font">Give feedback.<br>Earn rewards.</h4>
 </div>
 
-<div class="container">
 
 
 
-    <div class="adv-column first-column">
-        <h2>Your Meetings</h2>
-        <div>
-        <h3>Meeting Requests</h3>
+
+<div class="container-white">
+    <h3 class="in-con-title-green">Your Meetings</h3>
+    <div class="two-box-container">
+        <div class="rep-column first-column">
+        <h4 class="in-con-sub-title">Meeting Requests</h4>
             {% for meeting in meetings %}
                 {% if not meeting.meeting_accepted %}
-                    <a href="/adv/meeting/{{ meeting.meeting_id }}">
+                    <a class="link-font-white" href="/adv/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
                     </a>
                     <form method="post" action="/accept_meeting/{{ meeting.meeting_id }}">
@@ -31,11 +38,11 @@
             {% endfor %}
         </div>
 
-        <div>
-            <h3>Accepted Meetings</h3>
+        <div class="rep-column second-column">
+            <h4 class="in-con-sub-title">Accepted Meetings</h4>
             {% for meeting in meetings %}
                 {% if meeting.meeting_accepted %}
-                    <a href="/adv/meeting/{{ meeting.meeting_id }}">
+                    <a class="link-font-white" href="/adv/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
                     </a>     
                 <br>
@@ -43,17 +50,19 @@
             {% endfor %}
         </div>
     </div>
-
+</div>
 
 
 
 
     
+<div class="container-green">
 
-    <div class="adv-column first-column">
-    <h2>Your Connections</h2>
+    <h3 class="in-con-title-white">Your Connections</h3>
+    <div class="rep-column sales-adv-column">
+        <h4 class="in-con-sub-title">Click below to message or view contact info:.</h4>
         {% for sales_rep in sales_reps %}
-                    <a href="/advocate/{{ sales_rep.rep_id }}">
+                    <a class="link-font" href="/advocate/{{ sales_rep.rep_id }}">
                         Connection: {{ sales_rep.first_name }} {{ sales_rep.last_name }}
                         || Company: {{ sales_rep.company }}
                     </a><br>
@@ -61,12 +70,26 @@
     </div>
 </div>
 
-<br>
-<a class= "logout" href="/adv_logout">Logout</a>
+<div class="container-white">
+    <h3 class="in-con-title-green">Set Availability, Redeem Rewards</h3>
+    <div class="two-box-container">
+        <div class="rep-column first-column">
+        <h4 class="in-con-sub-title">Your Availability</h4>
+            <div>
+                <h1>Availability form goes here</h1>
+            </div>
+            <br>
+        </div>
 
+        <div class="rep-column second-column">
+            <h4 class="in-con-sub-title">Redeem your reward here:</h4>
+            <div>
+                <h1>Reward redeem section coming soon</h1>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
-
-
-
 {% block after_body %}{% endblock %}

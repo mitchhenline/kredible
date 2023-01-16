@@ -4,24 +4,29 @@
 
 {% block body %}
 
-<h2>Meeting Info</h2>
+<nav id="navigation">
+    <a id="main-title" href="/"><img src="/img/logo.png" alt="Kredible"></a>
+    <a class= "logout" href="/adv_logout">Log Out</a>
+</nav>
+
+<h3 class="in-con-title-green">Meeting Info</h3>
 
 
-<div>
-    <h3>Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} || {{ meeting.sales_adv['company'] }}</h3>
-    <h3>Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
-    <h3>Date: {{ meeting.date }}</h3>
-    <h3>Time: {{ meeting.date }}</h3>
-    <h3><a href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
+<div class="view-box">
+    <h3 class="view-box-font">Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} || {{ meeting.sales_adv['company'] }}</h3>
+    <h3 class="view-box-font">Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
+    <h3 class="view-box-font">Date: {{ meeting.date }}</h3>
+    <h3 class="view-box-font">Time: {{ meeting.date }}</h3>
+    <h3 class="view-box-font">Meeting Notes:</h3>
+    <p class="notes">{{ meeting.meeting_prep_notes }}</p>
+    
+    <h3 class="view-box-font"><a class="view-box-link" href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
 </div>
 
-<br>
-
-<a href="/rep">
+<h3><a class="back" href="/rep">
     Back
-</a>
-<br>
-<a class= "logout" href="/rep_logout">Logout</a>
+</a></h3>
+
 
 
 {% endblock %}
