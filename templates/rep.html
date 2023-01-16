@@ -12,38 +12,38 @@
 <div class="container">
 
     <div class="rep-column first-column">
-    <h3>Upcoming Meetings</h3>
-        <h4>Requested</h4>
+    <h3 class="in-con-title">Upcoming Meetings</h3>
+        <h4 class="in-con-sub-title">Requested</h4>
         {% for meeting in meetings %}
             {% if not meeting.meeting_accepted %}
-                <a href="/rep/meeting/{{ meeting.meeting_id }}">
+                <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
                     {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                 </a>
                 <br>  
             {% endif %}
         {% endfor %}
 
-        <h4>Accepted</h4>
+        <h4 h4 class="in-con-sub-title">Accepted</h4>
         {% for meeting in meetings %}
             {% if meeting.meeting_accepted %}
-                <a href="/rep/meeting/{{ meeting.meeting_id }}">
+                <a class="link-font" href="/rep/meeting/{{ meeting.meeting_id }}">
                     {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                 </a>
                 <br>  
             {% endif %}
         {% endfor %}
     </div>
-
-
+    
+</div>
 
 
 
 
     <div class="rep-column second-column">
-        <h3>Your Sales Advocates</h3>
-        <p>Click on an advocate's name below to request a meeting:</p>
+        <h3 class="in-con-title">Your Sales Advocates</h3>
+        <p class="in-con-sub-title">Click on an advocate's name below to request a meeting:</p>
         {% for sales_adv in sales_advs %}
-                    <a href="/rep/{{ sales_adv.adv_id }}">
+                    <a class="link-font" href="/rep/{{ sales_adv.adv_id }}">
                         {{ sales_adv.first_name }} {{ sales_adv.last_name }}
                         || {{ sales_adv.company }}
                     </a><br>
@@ -56,10 +56,10 @@
 
 
     <div class="rep-column third-column">
-        <h3>Your Prospects</h3>
+        <h3 class="in-con-title">Your Prospects</h3>
         <div>
             {% for customer in customers %}
-                        <a href="/rep/customer/{{ customer.cust_id }}">
+                        <a class="link-font" href="/rep/customer/{{ customer.cust_id }}">
                             {{ customer.first_name }} {{ customer.last_name }}
                             || {{ customer.company }}
                         </a><br>
@@ -67,7 +67,7 @@
         </div>
         <br>
 
-        <h4>Add a new prospect:</h4>
+        <h4 h4 class="in-con-sub-title">Add a new prospect:</h4>
         <div>
             <form method="POST" action="/rep">
                 <div class="form-input">{{ form.first_name.label }}: {{ form.first_name }}</div>
@@ -83,7 +83,7 @@
         <br>
     </div>
     
-</div>
+
 
 
 
