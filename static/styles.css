@@ -288,3 +288,37 @@ color:#374d42;
     color:#29322e;
     text-align: center;
 }
+
+
+
+/* ////////////////////////////////////////////////// */
+/* ////////////LANDING PAGE////////////////////////// */
+/* ////////////////////////////////////////////////// */
+
+.hero-image {
+    height: 500px;
+}
+
+#sales-rep-main-link {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    left: 5%;
+    font-size: 200%;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#sales-adv-main-link {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    right: 5%;
+    font-size: 200%;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* #landing-page-first-container {
+    display: flex;
+} */
