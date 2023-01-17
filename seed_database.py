@@ -28,9 +28,9 @@ rep3 = SalesRep(email = "phyllis@sales.com", password = "goaggies", first_name =
 
 
 # Sales Advs
-adv1 = SalesAdv(email = "homer@adv.com", password = "goaggies", first_name = "Homer", last_name = "Simpson", company = "Springfield Nuclear", phone_number= "090-225-3434", availability = "Tuesdays, 2pm - 5pm. Fridays, 1pm - 3pm")
-adv2 = SalesAdv(email = "frodo@adv.com", password = "goaggies", first_name = "Frodo", last_name = "Baggins", company = "Shire Travel Agency", phone_number= "122-999-3774", availability = "Wednesdays, 4pm - 5pm. Thursdays, 10am - 12pm")
-adv3 = SalesAdv(email = "santa@adv.com", password = "goaggies", first_name = "Santa", last_name = "Claus", company = "North Pole Gift Co.", phone_number= "152-645-0101", availability = "Mondays-Thursdays, 10am - 12pm, 4 pm - 5pm")
+adv1 = SalesAdv(email = "carl@adv.com", password = "goaggies", first_name = "Carl", last_name = "Carlson", company = "Springfield Nuclear", phone_number= "090-225-3434", availability = "Tuesdays, 2pm - 5pm. Fridays, 1pm - 3pm")
+adv2 = SalesAdv(email = "lenny@adv.com", password = "goaggies", first_name = "Lenny", last_name = "Leonard", company = "Springfield Nuclear", phone_number= "122-999-3774", availability = "Wednesdays, 4pm - 5pm. Thursdays, 10am - 12pm")
+adv3 = SalesAdv(email = "moe@adv.com", password = "goaggies", first_name = "Moe", last_name = "Syzlak", company = "Moe's Tavern", phone_number= "152-645-0101", availability = "Mondays-Thursdays, 10am - 12pm, 4 pm - 5pm")
 
 # Add reps and advs
 db.session.add_all([
@@ -45,13 +45,16 @@ db.session.commit()
 
 
 # Dummy customers
-customer1 = Customer(first_name = "Zach", last_name = "Bryan", email = "zb@music.com", company = "ZB Music", phone_number = "123-123-1234", notes = "Mr. Bryan wants to meet to get a current customer's point of view about the ticketing software.", rep_id = 1)
-customer2 = Customer(first_name = "Adam", last_name = "Lazarra", email = "adam@tbsmusic.com", company = "TBS Inc.", phone_number = "123-123-1775", notes = "Adam would like more information regarding how our product has helped our customers get a better ROI.", rep_id = 1)
-customer3 = Customer(first_name = "Taylor", last_name = "Swift", email = "taytay@music.com", company = "Swift Enterprises", phone_number = "123-123-9999", notes = "Ms. Swift wants to know how our software can help streamline recording.", rep_id = 1)
+customer1 = Customer(first_name = "Soleil", last_name = "Byrtus", email = "sb@bodhi.com", company = "ZB Music", phone_number = "123-123-1234", notes = "Soleil wants to meet to get a current customer's point of view about the ticketing software.", rep_id = 1)
+customer2 = Customer(first_name = "Matt", last_name = "Gawlik", email = "itschewsday@roight.com", company = "Cleveland Construction", phone_number = "123-123-1775", notes = "Matt would like more information regarding how our product has helped our customers get a better ROI.", rep_id = 1)
+customer3 = Customer(first_name = "Harry", last_name = "Colyer", email = "harry@vermont.com", company = "Harold Inc.", phone_number = "123-123-9999", notes = "Harry wants to know how our software can help streamline customer service processes.", rep_id = 1)
+customer4 = Customer(first_name = "Amelia", last_name = "Stimpson", email = "astimpson@luvrq.com", company = "RQ", phone_number = "123-123-4499", notes = "Amelia is interested in purchasing, but she would like to get a current customer's review on how it has benefitted their org.", rep_id = 1)
+customer5 = Customer(first_name = "Cole", last_name = "DeSilvia", email = "icecole@cybersecurity.com", company = "Big Time Cyber", phone_number = "123-123-9049", notes = "Cole wants to know how our software can help streamline customer service processes.", rep_id = 1)
+customer6 = Customer(first_name = "Matt", last_name = "Rosner", email = "rosboss@softball.com", company = "Softball Shop", phone_number = "123-523-9049", notes = "Mr. Rosner has some concern about the how the software integrates with his current technologies.", rep_id = 1)
 
 
 # Commit customers to database
-db.session.add_all([customer1,customer2, customer3])
+db.session.add_all([customer1,customer2, customer3, customer4, customer5, customer6])
 db.session.commit()
 
 # Create connections

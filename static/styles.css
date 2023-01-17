@@ -20,7 +20,7 @@ font-ref {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 100px;
+    height: 85px;
     position:sticky;
     top: 0px;
     margin: 0px;
@@ -35,7 +35,7 @@ font-ref {
     font-weight: 700;
     position:absolute;
     left: 5%;
-    font-size: 200%;
+    font-size: 160%;
     color: #81b29a;
     text-decoration: none;
 }
