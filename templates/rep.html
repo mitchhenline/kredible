@@ -91,16 +91,16 @@
             <br>
         </div>
 
-        <div class="rep-column second-column">
+        <div class="rep-column second-column add-prospect-form-container">
             <h4 h4 class="in-con-sub-title">Add a new prospect:</h4>
             <div>
-                <form method="POST" action="/rep">
-                    <div class="form-input">{{ form.first_name.label }}: {{ form.first_name }}</div>
-                    <div class="form-input">{{ form.last_name.label }}: {{ form.last_name }}</div>
-                    <div class="form-input">{{ form.email.label }}: {{ form.email }}</div>
-                    <div class="form-input">{{ form.company.label }}: {{ form.company }}</div>
-                    <div class="form-input">{{ form.phone_number.label }}: {{ form.phone_number }}</div>
-                    <div class="form-input">{{ form.notes.label }}: {{ form.notes }}</div>
+                <form class="add-prospect-form" method="POST" action="/rep">
+                    <div class="form-input">{{ form.first_name.label }}:<br> {{ form.first_name(class="prospect-form-input-box") }}</div>
+                    <div class="form-input">{{ form.last_name.label }}:<br> {{ form.last_name(class="prospect-form-input-box") }}</div>
+                    <div class="form-input">{{ form.email.label }}:<br> {{ form.email(class="prospect-form-input-box") }}</div>
+                    <div class="form-input">{{ form.company.label }}:<br> {{ form.company(class="prospect-form-input-box") }}</div>
+                    <div class="form-input">{{ form.phone_number.label }}:<br> {{ form.phone_number(class="prospect-form-input-box") }}</div>
+                    <div class="form-input">{{ form.notes.label }}:<br> {{ form.notes(class="prospect-form-input-box", id="notes-form") }}</div>
                     {{ form.csrf_token }}
                     <button id="button-font" class ="btn btn-primary" type="submit">Add Prospect</button>
                 </form>

@@ -39,12 +39,20 @@ font-ref {
     text-decoration: none;
     position:absolute;
     right: 5%;
-    color:#81b29a;
+    color:#ffffff;
     font-family: 'Mulish', sans-serif;
+    border: solid;
+    background-color: #81b29a;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 15px;
+    border-width: 1px;;
 }
 
 .logout:hover {
     color:#374d42;
+    background-color: white;
 }
 
 .contact {
@@ -146,14 +154,14 @@ color:#374d42;
     font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:#81b29a;
-    font-size: 110%;
+    font-size: 150%;
 }
 
 .link-font-view-adv {
     font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:white;
-    font-size: 110%;
+    font-size: 150%;
     
 }
 
@@ -169,7 +177,7 @@ color:#374d42;
     font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:#ffffff;
-    font-size: 110%;
+    font-size: 150%;
 }
 
 .link-font-white:hover {
@@ -392,4 +400,30 @@ color:#374d42;
 
 #im-a-sales-adv {
     text-align: center;
+}
+
+#button-font {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color:#81b29a;
+    border-color:#29322e;
+    border: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    color:#29322e;
+}
+
+#button-font:hover {
+    background-color:white;
+    border-color:#29322e;
+    color:#29322e;
+}
+
+.prospect-form-input-box {
+    width: 50%;
+    height: 30px;
+}
+
+#notes-form{
+    height: 90px;
 }
