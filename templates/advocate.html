@@ -60,7 +60,7 @@
 
     <h3 class="in-con-title-white">Your Connections</h3>
     <div class="rep-column sales-adv-column">
-        <h4 class="in-con-sub-title">Click below to message or view contact info:.</h4>
+        <h4 class="in-con-sub-title">Click below to message or view contact info:</h4>
         {% for sales_rep in sales_reps %}
                     <a class="link-font" href="/advocate/{{ sales_rep.rep_id }}">
                         Connection: {{ sales_rep.first_name }} {{ sales_rep.last_name }}

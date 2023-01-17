@@ -5,8 +5,8 @@ font-ref {
 
 .container-green {
     background-color: #81b29a;
-    padding-top: 25px;
-    padding-bottom: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
     margin-left: 0px;
 }
 
@@ -27,13 +27,14 @@ font-ref {
     border-bottom: solid;
     border-color: #81b29a;
     border-width: 1px;
+    z-index: 50;
 }
 
 #main-title {
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
     position:absolute;
-    left: 10%;
+    left: 5%;
     font-size: 200%;
     color: #81b29a;
     text-decoration: none;
@@ -42,12 +43,12 @@ font-ref {
 .logout {
     text-decoration: none;
     position:absolute;
-    right: 10%;
+    right: 5%;
     color:#81b29a;
 }
 
 .logout:hover {
-    color:black;
+    color:#374d42;
 }
 
 /* ////////////////////////////////////////////////// */
@@ -61,6 +62,8 @@ font-ref {
 
 .welcome-font {
     font-family: 'Mulish', sans-serif;
+    position: relative;
+    left: 5%;
 }
 
 #welcome-name {
@@ -72,9 +75,12 @@ font-ref {
 #page-desc {
     font-size: 200%;
     align-items: right;
+    color:#374d42;
 }
 
-
+.list-bullet {
+    color:#374d42;
+}
 
 
 
@@ -116,9 +122,9 @@ font-ref {
 
 .in-con-sub-title {
     font-family: 'Mulish', sans-serif;
-    color:black;
+    color:#374d42;
     margin-top: 5px;
-    font-size: 125%;
+    font-size: 150%;
 }
 
 .link-font {
@@ -129,19 +135,21 @@ font-ref {
 }
 
 .link-font:hover {
-    color: black;
+    color:#374d42;
 }
 
 .link-font-white {
-    font-family: 'Mulish' sans-serif;
+    font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:#ffffff;
     font-size: 110%;
 }
 
 .link-font-white:hover {
-    color: black;
+    color:#374d42;
 }
+
+
 
 
 
@@ -203,7 +211,7 @@ font-ref {
 
 .view-box-link:hover {
     text-decoration: underline;
-    color: black;
+    color:#374d42;
 }
 
 .back {
@@ -221,9 +229,9 @@ font-ref {
 }
 
 .back:hover {
-    color: black;
-    border-color:#000000;
-    background-color: #81b29a;
+    color: #374d42;
+    border-color:#374d42;;
+    background-color: #ffffff;
 }
 
 .notes {
@@ -235,7 +243,7 @@ font-ref {
 /* ////////////////////////////////////////////////// */
 
 .footer {
-    background-color: black;
+    background-color: #374d42;;
     height: 150px;
 }
 

@@ -23,24 +23,28 @@
         <div class="rep-column first-column">
             <h4 class="in-con-sub-title">Requested</h4>
             {% for meeting in meetings %}
+            <ul>
                 {% if not meeting.meeting_accepted %}
-                    <a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
+                    <li class="list-bullet"><a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
-                    </a>
+                    </a></li>
                     <br>  
                 {% endif %}
+              </ul>  
             {% endfor %}
         </div>
 
         <div class="rep-column second-column">
             <h4 class="in-con-sub-title">Accepted</h4>
             {% for meeting in meetings %}
+            <ul>
                 {% if meeting.meeting_accepted %}
-                    <a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
+                    <li class="list-bullet"><a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
                         {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
-                    </a>
+                    </a></li>
                     <br>  
                 {% endif %}
+            </ul>
             {% endfor %}
         </div>
     </div>
