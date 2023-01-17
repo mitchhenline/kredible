@@ -4,26 +4,39 @@
 
 {% block body %}
 
-<nav id="navigation">
-    <a id="main-title" href="/"><h3>Kredible</h3></a>
-    <a class= "contact" href="/contact">Contact</a>
-</nav>
 
-
-<div class="container-top" id="landing-page-first-container">
-    <h1 id="page-desc" class="welcome-font">Build trust and<br>close deals faster</h1>
-
-    <img class="hero-image" src="/images/hero-image.png" alt="Request, Schedule, Reward">
+<div id="landing-page-first-container">
+   <img class="logo" src="/static/images/logo.png" alt="Kredible">
 </div>
 
-<div class="container-green">
-    <h3 class="in-con-title-white">I am a...</h3>
-    <a id="sales-rep-main-link" href="/rep">Sales Representative</a>
-    <br>
-    <a id="sales-adv-main-link" href="/advocate">Sales Advocate</a>
-    <br>
-    <p>New user? <a href="/register">Register</a></p>
+<div class="two-box-container">
+    <div class="rep-column sales-adv-column">
+        <!-- <h1 id="page-desc" class="welcome-font">Build trust and<br>close deals faster</h1> -->
+        <h3 id="i-am-a">I am a...</h3>
+        <br>
+        <a id="sales-rep-main-link" href="/rep">Sales Representative</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a id="sales-adv-main-link" href="/advocate">Sales Advocate</a>
+        <br>
+    </div>
+
+    
+
+    <div class="rep-column sales-adv-column">
+        <img class="hero-image" src="/static/images/hero-image.png" alt="Request, Schedule, Reward">
+    </div>
 </div>
+
+<div id="reg-div">
+    <p id="new-user">New user? <a id="register" href="/register">Register</a></p>
+</div>
+
+    
+    
+
 
 {% endblock %}
 

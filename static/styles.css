@@ -3,12 +3,7 @@ font-ref {
     font-family: 'Mulish', sans-serif;
 }
 
-.container-green {
-    background-color: #81b29a;
-    padding-top: 15px;
-    padding-bottom: 50px;
-    margin-left: 0px;
-}
+
 
 
 /* ////////////////////////////////////////////////// */
@@ -68,10 +63,7 @@ color:#374d42;
 /* ////////////WELCOME CONTAINER SECTION///////////// */
 /* ////////////////////////////////////////////////// */
 
-.container-top {
-    padding: 10px;
-    text-align: left;
-}
+
 
 .welcome-font {
     font-family: 'Mulish', sans-serif;
@@ -96,9 +88,12 @@ color:#374d42;
 }
 
 
-
-
-
+.container-green {
+    background-color: #81b29a;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    margin-left: 0px;
+}
 
 
 .two-box-container {
@@ -302,23 +297,79 @@ color:#374d42;
 #sales-rep-main-link {
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
-    position:absolute;
-    left: 5%;
-    font-size: 200%;
-    color: #ffffff;
+    font-size: 270%;
+    color:#81b29a;
     text-decoration: none;
+    margin-left: 80px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: solid;
+    border-width: 3px;
+    border-color: #81b29a;
+    border-radius: 25px;
 }
 
 #sales-adv-main-link {
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
-    position:absolute;
-    right: 5%;
-    font-size: 200%;
-    color: #ffffff;
+    font-size: 270%;
+    color:#81b29a;
     text-decoration: none;
+    margin-left: 80px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: solid;
+    border-width: 3px;
+    border-color: #81b29a;
+    border-radius: 25px;
 }
 
-/* #landing-page-first-container {
-    display: flex;
-} */
+#sales-adv-main-link:hover {
+    color: #ffffff;
+    background-color: #81b29a;
+    border-color: #ffffff;
+}
+
+#sales-rep-main-link:hover {
+    color: #ffffff;
+    background-color: #81b29a;
+    border-color: #ffffff;
+}
+
+#i-am-a {
+    color: #374d42;
+    font-family: "Mulish", sans-serif;
+    font-size: 250%;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+
+#reg-div {
+    margin-left: 140px;
+}
+
+#new-user {
+    font-family: "Mulish", sans-serif;
+    font-size: 120%;
+    color: #29322e;
+}
+
+#register {
+    font-family: "Mulish", sans-serif;
+    color:#81b29a;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+.logo {
+    display: block;
+    margin: 00 auto;
+    width: 14%;
+}
+
+#landing-page-first-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
