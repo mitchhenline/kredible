@@ -291,7 +291,7 @@ color:#374d42;
 /* ////////////////////////////////////////////////// */
 
 .hero-image {
-    height: 500px;
+    height: 600px;
 }
 
 #sales-rep-main-link {
@@ -372,4 +372,24 @@ color:#374d42;
 #landing-page-first-container {
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+/* ////////////////////////////////////////////////// */
+/* ////////////FORM INPUT//////////////////////////// */
+/* ////////////////////////////////////////////////// */
+
+.form-input {
+    font-family: "kanit", sans-serif;
+    margin: 5px;
+}
+
+.form-font {
+    font-family: "Mulish", sans-serif;
+    
+}
+
+
+
+#im-a-sales-adv {
+    text-align: center;
 }

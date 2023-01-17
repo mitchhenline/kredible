@@ -4,17 +4,24 @@
 
 {% block body %}
 
+<nav id="navigation">
+    <a id="main-title" href="/"><h3>Kredible</h3></a>
+    <a class= "logout" href="/rep_logout">Log Out</a>
+</nav>
 
-<h3>{{ customer.first_name }} {{ customer.last_name }} || {{ customer.company }}</h3>
-<h4>{{ customer.email }}</h4>
-<h4>{{ customer.phone_number }}</h4>
-<p>{{ customer.notes }}</p>
+<div class="container-white">
 
+    <h3 class="in-con-title-green">{{ customer.first_name }} {{ customer.last_name }} || {{ customer.company }}</h3>
+    <div class="view-box">
+        <h3 class="view-box-font">Email: {{ customer.email }}</h3>
+        <h3 class="view-box-font">Phone number: {{ customer.phone_number }}</h3>
+        <h3 class="view-box-font">Notes: </h3>
+        <h4 class="notes">{{ customer.notes }}</h4>
+    </div>
+</div>
 
-
-<a href="/rep">Back</a>
+<a class="back" href="/rep">Back</a>
 <br>
-<a class= "logout" href="/adv_logout">Logout</a>
 
 {% endblock %}
 

@@ -3,21 +3,33 @@
 {% block title %}Log In to Kredible{% endblock %}
 
 {% block body %}
-<h1><a href="/">Kredible</a></h1>
-<h2>rep login</h2>
-<form class="rep-login-form"method="POST" action="/rep_login">
-    <div id="rep-login-email-box">{{ form.email.label }}: {{ form.email }}</div>
-    <div id="rep-login-password-box">{{ form.password.label }}: {{ form.password }}</div>
-    {{ form.csrf_token }}
-    <button id="login-button" class ="btn btn-primary" type="submit">Sign In</button>
-</form>
+
+<nav id="navigation">
+    <a id="main-title" href="/"><h3>Kredible</h3></a>
+    <a class="logout" href="/register">Register</a></p>
+</nav>
 
 
-<br>
-<a href="/advocate">I'm a Sales Advocate</a>
-<br>
-<br>
-<p>New user? <a href="/register">Register</a></p>
+<div class="two-box-container">
+    <div class="rep-column sales-adv-column">
+        <h2 class="in-con-title-green">Representative Log In</h2>
+        <form class="rep-login-form"method="POST" action="/rep_login">
+            <div id="rep-login-email-box">{{ form.email.label(class="form-font") }}: {{ form.email(class="form-input") }}</div>
+            <div id="rep-login-password-box">{{ form.password.label(class="form-font") }}: {{ form.password(class="form-input") }}</div>
+            {{ form.csrf_token }}
+            <button id="login-button" class ="btn btn-primary" type="submit">Sign In</button>
+        </form>
+            <br>
+            <a class="link-font" id="im-a-sales-adv" href="/advocate">I'm a Sales Advocate</a>
+            <br>
+    </div>
+
+    
+
+    <div class="rep-column sales-adv-column">
+        <img class="hero-image" src="/static/images/hero-image.png" alt="Request, Schedule, Reward">
+    </div>
+</div>
 
 
 {% endblock %}
