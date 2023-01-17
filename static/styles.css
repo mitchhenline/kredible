@@ -25,7 +25,7 @@ font-ref {
     top: 0px;
     margin: 0px;
     border-bottom: solid;
-    border-color: #81b29a;
+    border-color: #374d42;
     border-width: 1px;
     z-index: 50;
 }
@@ -45,10 +45,23 @@ font-ref {
     position:absolute;
     right: 5%;
     color:#81b29a;
+    font-family: 'Mulish', sans-serif;
 }
 
 .logout:hover {
     color:#374d42;
+}
+
+.contact {
+text-decoration: none;
+position:absolute;
+right: 5%;
+color:#81b29a;
+font-family: 'Mulish', sans-serif;
+}
+
+.contact:hover {
+color:#374d42;
 }
 
 /* ////////////////////////////////////////////////// */
@@ -127,11 +140,30 @@ font-ref {
     font-size: 150%;
 }
 
+.in-con-sub-title-view-adv {
+    font-family: 'Mulish', sans-serif;
+    color:#374d42;
+    margin-top: 5px;
+    font-size: 100%;
+}
+
 .link-font {
     font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color:#81b29a;
     font-size: 110%;
+}
+
+.link-font-view-adv {
+    font-family: 'Mulish', sans-serif;
+    text-decoration: none;
+    color:white;
+    font-size: 110%;
+    
+}
+
+.link-font-view-adv:hover {
+    color:#374d42;
 }
 
 .link-font:hover {
@@ -184,6 +216,11 @@ font-ref {
 
 .third-column {
     grid-column: 3/4;
+}
+
+#view-ind-adv-container {
+    margin-top: -120px;
+    margin-bottom: -70px;
 }
 
 /* ////////////////////////////////////////////////// */

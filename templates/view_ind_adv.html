@@ -4,72 +4,82 @@
 
 {% block body %}
 
-<p>You are logged in as a sales rep.</p>
+<nav id="navigation">
+    <a id="main-title" href="/"><h3>Kredible</h3></a>
+    <a class= "logout" href="/rep_logout">Log Out</a>
+</nav>
 
-<h1>Kredible</h1>
 
-<h2>{{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h2>
-<h4>Email: {{ adv.email }}</h4>
-<h4>Phone: {{ adv.phone_number }}</h4>
 
-<div>
-    <h3>Availability:</h3>
-    <p>{{ adv.availability }}</p>
-    <h3>Request meeting with {{ adv.first_name }} {{ adv.last_name }}</h3>
-    <form class="request-mtg-form"method="POST" action="/rep/{{ adv.adv_id }}">
-        <div> {{ form.cust_id.label }}: {{ form.cust_id }}</div>
-        <div> {{ form.date.label }}: {{ form.date }} </div>
-        <div> {{ form.time.label }}: {{ form.time }}</div>
-        <div> {{ form.meeting_link.label }}: {{ form.meeting_link }}</div>
-        <div> {{ form.meeting_prep_notes.label }}: {{ form.meeting_prep_notes }} </div>
-        {{ form.csrf_token }}
-        <button id="request-meeting-submit-btn" class ="btn btn-primary" type="submit">Request Meeting</button>
-    </form>
+<div class="container-white">
+    <h3 class="in-con-title-green">{{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h3>
+
+    <div class="two-box-container">
+
+        <div class="rep-column first-column">
+            <h4 class="in-con-sub-title">Contact Info</h4>
+            <h4 class="view-box-font">Email: {{ adv.email }}</h4>
+            <h4 class="view-box-font">Phone: {{ adv.phone_number }}</h4>
+            <h4 class="in-con-sub-title">Availability</h4>
+            <h4 class="view-box-font">{{ adv.availability }}</h4>
+        </div>
+
+
+        <div class="rep-column second-column">
+            <h3 class="in-con-sub-title">Request meeting with {{ adv.first_name }} {{ adv.last_name }}</h3>
+            <form class="request-mtg-form"method="POST" action="/rep/{{ adv.adv_id }}">
+                <p class="view-box-font"> {{ form.cust_id.label }}: {{ form.cust_id }}</p>
+                <p class="view-box-font"> {{ form.date.label }}: {{ form.date }} </p>
+                <p class="view-box-font"> {{ form.time.label }}: {{ form.time }}</p>
+                <p class="view-box-font"> {{ form.meeting_link.label }}: {{ form.meeting_link }}</p>
+                <p class="view-box-font"> {{ form.meeting_prep_notes.label }}: {{ form.meeting_prep_notes }} </p>
+                {{ form.csrf_token }}
+                <button id="request-meeting-submit-btn" class ="btn btn-primary" type="submit">Request Meeting</button>
+            </form>         
+        </div>
+    </div>    
 </div>
 
-<div>
-    <h3>Upcoming meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
-    <h4>Requested</h4>
-    {% for meeting in meetings %}
-        {% if not meeting.meeting_accepted %}
-            <a href="/rep/meeting/{{ meeting.meeting_id }}">
-                {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
-            </a>
-            <br>  
-        {% endif %}
-    {% endfor %}
+<div id="view-ind-adv-container"class="container-white">
+    <div class="two-box-container">
 
-    <h4>Accepted</h4>
-    {% for meeting in meetings %}
-        {% if meeting.meeting_accepted %}
-            <a href="/rep/meeting/{{ meeting.meeting_id }}">
-                {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
-            </a>
-            <br>  
-        {% endif %}
-    {% endfor %}
-</div>
-</div>
+        <div class="rep-column first-column">
+                <h3 class="in-con-sub-title">Meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
+                <h4 class="in-con-sub-title-view-adv">Requested</h4>
+                {% for meeting in meetings %}
+                    {% if not meeting.meeting_accepted %}
+                        <a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
+                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+                        </a>
+                        <br>  
+                    {% endif %}
+                {% endfor %}
+                <br>
+                <h4 class="in-con-sub-title-view-adv">Accepted</h4>
+                {% for meeting in meetings %}
+                    {% if meeting.meeting_accepted %}
+                        <a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
+                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+                        </a>
+                        <br>  
+                    {% endif %}
+                {% endfor %}
+        </div>
 
-<div>
-    <h3>Completed meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
-</div>
-
-<div>
-    <h3>Your messages with {{ adv.first_name }} {{ adv.last_name }}</h3>
-    {% for message in message_list %}
+        <div class="rep-column second-column">
+            <h3 class="in-con-sub-title">Your messages with {{ adv.first_name }} {{ adv.last_name }}</h3>
+            {% for message in message_list %}
                 <p>
                     {{ message }}
                 </p><br>
-    {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 
-<a href="/rep">
+<a class="back" href="/rep">
     Back
 </a>
-<br>
-<a class= "logout" href="/rep_logout">Logout</a>
-
 
 {% endblock %}
