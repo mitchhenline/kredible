@@ -13,13 +13,13 @@
 
 
 <div class="view-box">
-    <h3 class="view-box-font">Rep: {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }} || {{ meeting.sales_rep['company'] }}</h3>
-    <h3 class="view-box-font">Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
-    <h3 class="view-box-font">Date: {{ meeting.date }}</h3>
-    <h3 class="view-box-font">Time: {{ meeting.time }}</h3>
-    <h3 class="view-box-font">Notes from {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }}:</h3>
+    <h4 class="view-box-font">Rep: {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }} || {{ meeting.sales_rep['company'] }}</h4>
+    <h4 class="view-box-font">Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h4>
+    <h4 class="view-box-font">Date: {{ meeting.date }}</h4>
+    <h4 class="view-box-font">Time: {{ meeting.time }}</h4>
+    <h4 class="view-box-font">Notes from {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }}:</h4>
     <p class="notes">{{ meeting.meeting_prep_notes }}</p>
-    <h3 class="view-box-font"><a class="view-box-link" href="{{ meeting.meeting_link }}">Meeting Link</a></h3>
+    <h4 class="view-box-font"><a class="view-box-link" href="{{ meeting.meeting_link }}">Meeting Link</a></h4>
 </div>
 
 <br>

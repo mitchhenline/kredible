@@ -86,7 +86,7 @@ color:#374d42;
 }
 
 #page-desc {
-    font-size: 200%;
+    font-size: 280%;
     align-items: right;
     color:#374d42;
 }
@@ -109,10 +109,7 @@ color:#374d42;
     padding: 25px;
 }
 
-.rep-column.sales-adv-column {
-    margin: 0 auto;
-    background-color: #ffffff;
-  }
+
 
 .container-white {
     background-color: #ffffff;
@@ -184,7 +181,35 @@ color:#374d42;
     color:#374d42;
 }
 
+.view-box {
+    background-color:#81b29a;
+    padding: 15px;
+    margin: 0 auto;
+    width: 50%;
+}
 
+.rep-column.sales-adv-column {
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+
+.view-box-font {
+    font-family: 'Mulish', sans-serif;
+    text-decoration: none;
+    color:#ffffff;
+    font-size: 150%;
+}
+
+.view-box-link {
+    text-decoration: underline;
+    color:#ffffff;
+    margin-top: 40px;
+}
+
+.view-box-link:hover {
+    text-decoration: underline;
+    color:#374d42;
+}
 
 
 
@@ -230,29 +255,7 @@ color:#374d42;
 /* ////////////INDIVIDUAL VIEW BOXES///////////////// */
 /* ////////////////////////////////////////////////// */
 
-.view-box {
-    background-color:#81b29a;
-    padding: 15px;
-    margin: 15px;
-}
 
-.view-box-font {
-    font-family: 'Mulish', sans-serif;
-    text-decoration: none;
-    color:#ffffff;
-    font-size: 110%;
-}
-
-.view-box-link {
-    text-decoration: underline;
-    color:#ffffff;
-    margin-top: 40px;
-}
-
-.view-box-link:hover {
-    text-decoration: underline;
-    color:#374d42;
-}
 
 .back {
     text-decoration: none;
@@ -276,6 +279,7 @@ color:#374d42;
 
 .notes {
     font-family: 'Mulish', sans-serif;
+    font-size: 120%;
 }
 
 /* ////////////////////////////////////////////////// */
@@ -404,7 +408,6 @@ color:#374d42;
 
 #button-font {
     padding: 0.5rem 1rem;
-    margin-top: 1rem;
     background-color:#81b29a;
     border-color:#29322e;
     border: solid;
@@ -417,6 +420,23 @@ color:#374d42;
     background-color:white;
     border-color:#29322e;
     color:#29322e;
+}
+
+#button-font-white {
+    padding: 0.5rem 1rem;
+    background-color:#81b29a;
+    border-color:#ffffff;
+    border: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    color:#ffffff;
+    margin-top: 15px;
+}
+
+#button-font-white:hover {
+    background-color:#ffffff;
+    border-color:#29322e;
+    color: #29322e;
 }
 
 .prospect-form-input-box {

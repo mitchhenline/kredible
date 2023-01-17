@@ -14,10 +14,10 @@
     <div class="rep-column sales-adv-column">
         <h2 class="in-con-title-green">Representative Log In</h2>
         <form class="rep-login-form"method="POST" action="/rep_login">
-            <div id="rep-login-email-box">{{ form.email.label(class="form-font") }}: {{ form.email(class="form-input") }}</div>
-            <div id="rep-login-password-box">{{ form.password.label(class="form-font") }}: {{ form.password(class="form-input") }}</div>
+            <div id="rep-login-email-box">{{ form.email.label(class="form-font") }}:<br> {{ form.email(class="form-input") }}</div>
+            <div id="rep-login-password-box">{{ form.password.label(class="form-font") }}:<br> {{ form.password(class="form-input") }}</div>
             {{ form.csrf_token }}
-            <button id="login-button" class ="btn btn-primary" type="submit">Sign In</button>
+            <button id="button-font-white" class ="btn btn-primary" type="submit">Sign In</button>
         </form>
             <br>
             <a class="link-font" id="im-a-sales-adv" href="/advocate">I'm a Sales Advocate</a>

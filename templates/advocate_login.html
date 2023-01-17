@@ -13,10 +13,10 @@
     <div class="rep-column sales-adv-column">
         <h2 class="in-con-title-green">Advocate Log In</h2>
         <form class="adv-login-form"method="POST" action="/advocate_login">
-            <div id="adv-login-email-box">{{ form.email.label(class="form-font") }}: {{ form.email(class="form-input") }}</div>
-            <div id="adv-login-password-box">{{ form.password.label(class="form-font") }}: {{ form.password(class="form-input") }}</div>
+            <div id="adv-login-email-box">{{ form.email.label(class="form-font") }}:<br> {{ form.email(class="form-input") }}</div>
+            <div id="adv-login-password-box">{{ form.password.label(class="form-font") }}:<br> {{ form.password(class="form-input") }}</div>
             {{ form.csrf_token }}
-            <button id="login-button" class ="btn btn-primary" type="submit">Sign In</button>
+            <button id="button-font-white" class ="btn btn-primary" type="submit">Sign In</button>
         </form>
             <br>
             <a class="link-font" id="im-a-sales-adv" href="/rep">I'm a Sales Representative</a>

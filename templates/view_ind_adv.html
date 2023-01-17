@@ -28,13 +28,13 @@
         <div class="rep-column second-column">
             <h3 class="in-con-sub-title">Request meeting with {{ adv.first_name }} {{ adv.last_name }}</h3>
             <form class="request-mtg-form"method="POST" action="/rep/{{ adv.adv_id }}">
-                <p class="view-box-font"> {{ form.cust_id.label }}: {{ form.cust_id }}</p>
-                <p class="view-box-font"> {{ form.date.label }}: {{ form.date }} </p>
-                <p class="view-box-font"> {{ form.time.label }}: {{ form.time }}</p>
-                <p class="view-box-font"> {{ form.meeting_link.label }}: {{ form.meeting_link }}</p>
-                <p class="view-box-font"> {{ form.meeting_prep_notes.label }}: {{ form.meeting_prep_notes }} </p>
+                <p class="view-box-font"> {{ form.cust_id.label }}:<br> {{ form.cust_id(class="prospect-form-input-box") }}</p>
+                <p class="view-box-font"> {{ form.date.label }}:<br> {{ form.date(class="prospect-form-input-box") }} </p>
+                <p class="view-box-font"> {{ form.time.label }}:<br> {{ form.time(class="prospect-form-input-box") }}</p>
+                <p class="view-box-font"> {{ form.meeting_link.label }}:<br> {{ form.meeting_link(class="prospect-form-input-box") }}</p>
+                <p class="view-box-font"> {{ form.meeting_prep_notes.label }}:<br> {{ form.meeting_prep_notes(class="prospect-form-input-box", id="notes-form") }} </p>
                 {{ form.csrf_token }}
-                <button id="request-meeting-submit-btn" class ="btn btn-primary" type="submit">Request Meeting</button>
+                <button id="button-font" class ="btn btn-primary" type="submit">Request Meeting</button>
             </form>         
         </div>
     </div>    
