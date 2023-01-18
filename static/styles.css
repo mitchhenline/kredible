@@ -310,7 +310,7 @@ color:#374d42;
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
     font-size: 270%;
-    color:#81b29a;
+    color:white;
     text-decoration: none;
     margin-left: 80px;
     padding: 10px;
@@ -320,13 +320,14 @@ color:#374d42;
     border-width: 3px;
     border-color: #81b29a;
     border-radius: 25px;
+    background-color: #81b29a;
 }
 
 #sales-adv-main-link {
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
     font-size: 270%;
-    color:#81b29a;
+    color:white;
     text-decoration: none;
     margin-left: 80px;
     padding: 10px;
@@ -336,18 +337,19 @@ color:#374d42;
     border-width: 3px;
     border-color: #81b29a;
     border-radius: 25px;
+    background-color: #81b29a;
 }
 
 #sales-adv-main-link:hover {
-    color: #ffffff;
-    background-color: #81b29a;
-    border-color: #ffffff;
+    color:#81b29a;
+    background-color: white;
+    border-color:#81b29a;
 }
 
 #sales-rep-main-link:hover {
-    color: #ffffff;
-    background-color: #81b29a;
-    border-color: #ffffff;
+    color:#81b29a;
+    background-color: white;
+    border-color:#81b29a;
 }
 
 #i-am-a {
