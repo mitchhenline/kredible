@@ -30,7 +30,7 @@
             <ul>
                 {% if not meeting.meeting_accepted %}
                     <a class="link-font-white" href="/adv/meeting/{{ meeting.meeting_id }}">
-                        <li>{{ meeting.get_readable_date() }}, {{ meeting.time }} <br>{{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
+                        <li>{{ meeting.get_readable_date() }}, {{ meeting.time }} <br>{{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}<br> {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }} of {{ meeting.sales_rep['company'] }}
                     </a>
                     <form method="post" action="/accept_meeting/{{ meeting.meeting_id }}">
                         {{ form.meeting_accepted(id="button-font", class="btn btn-primary") }}
@@ -49,7 +49,7 @@
             <ul>
                 {% if meeting.meeting_accepted %}
                     <a class="link-font-white" href="/adv/meeting/{{ meeting.meeting_id }}">
-                        <li>{{ meeting.get_readable_date() }}, {{ meeting.time }} <br>{{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}</li>
+                        <li>{{ meeting.get_readable_date() }}, {{ meeting.time }} <br>{{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}<br> {{ meeting.sales_rep['first_name'] }} {{ meeting.sales_rep['last_name'] }} of {{ meeting.sales_rep['company'] }}</li>
                     </a>     
                 <br>
                 {% endif %}
@@ -69,12 +69,14 @@
     <h3 class="in-con-title-white">Your Connections</h3>
     <div class="rep-column sales-adv-column">
         <h4 class="in-con-sub-title">Click below to message or view contact info:</h4>
+        <ul>
         {% for sales_rep in sales_reps %}
-                    <a class="link-font" href="/advocate/{{ sales_rep.rep_id }}">
+                    <li><a class="link-font" href="/advocate/{{ sales_rep.rep_id }}">
                         Connection: {{ sales_rep.first_name }} {{ sales_rep.last_name }}
                         || Company: {{ sales_rep.company }}
-                    </a><br>
+                    </a></li><br>
         {% endfor %}
+        </ul>
     </div>
 </div>
 
