@@ -49,22 +49,27 @@
                 <h3 class="in-con-sub-title">Meetings involving {{ adv.first_name }} {{ adv.last_name }}</h3>
                 <h4 class="in-con-sub-title-view-adv">Requested</h4>
                 {% for meeting in meetings %}
+                <ul>
                     {% if not meeting.meeting_accepted %}
-                        <a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
-                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+                        <li><a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
+                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} <br> {{ meeting.get_readable_date() }}, {{ meeting.time }}
                         </a>
-                        <br>  
+                        </li><br>  
                     {% endif %}
+                </ul>
                 {% endfor %}
                 <br>
                 <h4 class="in-con-sub-title-view-adv">Accepted</h4>
                 {% for meeting in meetings %}
+                <ul>
                     {% if meeting.meeting_accepted %}
-                        <a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
-                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }}
+                        <li><a class="link-font-view-adv" href="/rep/meeting/{{ meeting.meeting_id }}">
+                            {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} <br> {{ meeting.get_readable_date() }}, {{ meeting.time }}
                         </a>
-                        <br>  
+                        </li>
+                        <br>
                     {% endif %}
+                </ul>
                 {% endfor %}
         </div>
 

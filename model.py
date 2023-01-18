@@ -4,6 +4,7 @@ import os, datetime
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy import func
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -77,8 +78,8 @@ class Meeting(db.Model):
     __tablename__ = "meetings"
 
     meeting_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    date = db.Column(db.DateTime)
-    time = db.Column(db.String)  #change to time later, can't pass in the right format with DateTime(timezone=True), server_default=func.now()
+    date = db.Column(db.Date)
+    time = db.Column(db.String) 
     meeting_link = db.Column(db.String(255))
     meeting_prep_notes = db.Column(db.Text)
     meeting_accepted = db.Column(db.Boolean, default=False)
@@ -90,6 +91,10 @@ class Meeting(db.Model):
     sales_rep = db.relationship("SalesRep", backref="meetings")
     sales_adv = db.relationship("SalesAdv", backref="meetings")
     customer = db.relationship("Customer", backref="meetings")
+
+    def get_readable_date(self):
+        self.readable_date = self.date.strftime("%B %d, %Y")
+        return self.readable_date
 
 class Messages(db.Model):
     """Messages table"""

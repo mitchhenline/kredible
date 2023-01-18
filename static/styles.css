@@ -420,23 +420,23 @@ color:#374d42;
 
 .form-font {
     font-family: "Mulish", sans-serif;
-    
+
 }
-
-
 
 #im-a-sales-adv {
     text-align: center;
 }
 
 #button-font {
-    padding: 0.5rem 1rem;
+    padding: 0.35rem .5rem;
     background-color:#81b29a;
     border-color:white;
     border: solid;
-    border-width: 2px;
+    border-width: 1px;
     border-radius: 15px;
     color:white;
+    margin-top: 8px;;
+    font-size:105%;
 }
 
 #button-font:hover {

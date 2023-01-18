@@ -23,7 +23,6 @@ def MeetingFunc(rep_id):
     class RequestMeeting(FlaskForm):
         date=DateField('Date ')
         time=SelectField('Time ', choices = time_choices)
-        # time=TimeField('Time ', format='%I:%M:%p') format I had that isn't working
         meeting_link=StringField('Meeting link ', [validators.InputRequired()])
         meeting_prep_notes=TextAreaField('Meeting Notes ')
         choices = [ (c.cust_id, c.first_name +" "+ c.last_name) for c in Customer.query.filter_by(rep_id = rep_id).all()]

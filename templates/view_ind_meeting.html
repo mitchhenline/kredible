@@ -15,8 +15,8 @@
 <div class="view-box">
     <h3 class="view-box-font">Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} || {{ meeting.sales_adv['company'] }}</h3>
     <h3 class="view-box-font">Customer: {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} || {{ meeting.customer['company'] }}</h3>
-    <h3 class="view-box-font">Date: {{ meeting.date }}</h3>
-    <h3 class="view-box-font">Time: {{ meeting.date }}</h3>
+    <h3 class="view-box-font">Date: {{ meeting.get_readable_date() }}</h3>
+    <h3 class="view-box-font">Time: {{ meeting.time }}</h3>
     <h3 class="view-box-font">Meeting Notes:</h3>
     <p class="notes">{{ meeting.meeting_prep_notes }}</p>
     

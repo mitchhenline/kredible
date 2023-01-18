@@ -30,7 +30,7 @@
             <ul>
                 {% if not meeting.meeting_accepted %}
                     <li class="list-bullet"><a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
-                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} <br> {{ meeting.get_readable_date() }}, {{ meeting.time }} <br> Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                     </a></li>
                     <br>  
                 {% endif %}
@@ -44,7 +44,7 @@
             <ul>
                 {% if meeting.meeting_accepted %}
                     <li class="list-bullet"><a class="link-font-white" href="/rep/meeting/{{ meeting.meeting_id }}">
-                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} at {{ meeting.date }} with {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
+                        {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }} <br> {{ meeting.get_readable_date() }}, {{ meeting.time }} <br> Advocate: {{ meeting.sales_adv['first_name'] }} {{ meeting.sales_adv['last_name'] }} of {{ meeting.sales_adv['company'] }} 
                     </a></li>
                     <br>  
                 {% endif %}
