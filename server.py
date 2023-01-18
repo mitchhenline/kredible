@@ -43,6 +43,7 @@ def accept_meeting(meeting_id):
         meeting.meeting_accepted = form.meeting_accepted.data
         db.session.add(meeting)
         db.session.commit()
+        flash("Meeting Accepted!")
     return redirect('/advocate')
 
 @app.route('/advocate_login', methods=["GET", "POST"])
@@ -110,6 +111,7 @@ def add_customer():
         )
         db.session.add(customer)
         db.session.commit()
+        flash("New Prospect Added!")
         return redirect('/rep')
     else:
         abort(404)
@@ -125,6 +127,7 @@ def rep_login():
 
         user = crud.get_rep_by_email(email)
         if not user or user.password != password:
+            flash("Invalid email or password")
             return redirect('/rep_login')
 
         session['rep_id'] = user.rep_id 
@@ -191,9 +194,9 @@ def request_meeting(adv_id):
             adv_id = adv_id,
             rep_id = session['rep_id']
         )
-        print("made it through validate form")
         db.session.add(meeting)
         db.session.commit()
+        flash("New Meeting Requested!")
         return redirect(f'/rep/{adv_id}')
     else:
         print(form.errors)

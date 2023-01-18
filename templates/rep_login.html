@@ -22,6 +22,9 @@
             <br>
             <a class="link-font" id="im-a-sales-adv" href="/advocate">I'm a Sales Advocate</a>
             <br>
+            {% for message in get_flashed_messages() %}
+                <h3 class="alert">{{ message }}</h3>
+            {% endfor %}
     </div>
 
     

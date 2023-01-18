@@ -9,7 +9,9 @@
     <a class= "logout" href="/rep_logout">Log Out</a>
 </nav>
 
-
+{% for message in get_flashed_messages() %}
+    <h3 class="alert", id="rep-alert">{{ message }}</h3>
+{% endfor %}
 
 <div class="container-white">
     <h3 class="in-con-title-green">{{ adv.first_name }} {{ adv.last_name }} of {{ adv.company }}</h3>

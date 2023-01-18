@@ -4,6 +4,8 @@
 
 {% block body %}
 
+
+
 <nav id="navigation">
     <a id="main-title" href="/"><h3>Kredible</h3></a>
     <a class= "logout" href="/rep_logout">Log Out</a>
@@ -14,7 +16,9 @@
     <h4 id="page-desc" class="welcome-font">Engage customer advocates.<br>Schedule reference calls.<br>Close more deals.</h4>
 </div>
                 
-
+{% for message in get_flashed_messages() %}
+    <h3 class="alert", id="rep-alert">{{ message }}</h3>
+{% endfor %}
 
 <div class="container-white">
     <h3 class="in-con-title-green">Upcoming Meetings</h3>

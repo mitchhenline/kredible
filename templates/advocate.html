@@ -14,7 +14,9 @@
     <h4 id="page-desc" class="welcome-font">Give feedback.<br>Earn rewards.</h4>
 </div>
 
-
+{% for message in get_flashed_messages() %}
+    <h3 id="rep-alert" class="alert">{{ message }}</h3>
+{% endfor %}
 
 
 
