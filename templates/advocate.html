@@ -28,12 +28,12 @@
             <ul>
                 {% if not meeting.meeting_accepted %}
                     <a class="link-font-white" href="/adv/meeting/{{ meeting.meeting_id }}">
-                        <li>{{ meeting.date }}, {{ meeting.date }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
+                        <li>{{ meeting.date }}, {{ meeting.time }} -- {{ meeting.customer['first_name'] }} {{ meeting.customer['last_name'] }} of {{ meeting.customer['company'] }}
                     </a>
                     <form method="post" action="/accept_meeting/{{ meeting.meeting_id }}">
-                        {{ form.meeting_accepted }}
+                        {{ form.meeting_accepted(id="button-font", class="btn btn-primary") }}
                         {{ form.csrf_token }}
-                        <button id="button-font" class ="btn btn-primary" type="submit">Accept Meeting</button></li>
+                    </li>
                     </form>
                 <br>
                 {% endif %}

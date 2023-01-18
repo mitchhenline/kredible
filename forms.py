@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, validators, TextAreaField, DateField, TimeField, SelectField, BooleanField
+from wtforms import PasswordField, StringField, validators, TextAreaField, DateField, TimeField, SelectField, SubmitField
 from model import Customer, SalesRep, SalesAdv
 
 class AdvLoginForm(FlaskForm):
@@ -42,4 +42,4 @@ def MeetingFunc(rep_id):
 #     return RequestMeetingCust()           ######choices line is holding this function back####
 
 class AcceptMeeting(FlaskForm):
-    meeting_accepted=BooleanField('Accept')
+    meeting_accepted=SubmitField('Accept')
