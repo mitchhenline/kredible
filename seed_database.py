@@ -8,13 +8,13 @@ app = Flask(__name__)
 connect_to_db(app)
 
 # # Drop the existing database
-# try:
-#     os.system("dropdb -U postgres kredible")
-#     os.system("createdb -U postgres kredible")
+try:
+    os.system("dropdb -U postgres kredible")
+    os.system("createdb -U postgres kredible")
 
 # # Recreate the kredible database
-# except:
-os.system("createdb kredible")
+except:
+    os.system("createdb kredible")
 
 # Creates our tables
 db.create_all()
