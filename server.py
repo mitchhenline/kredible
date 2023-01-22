@@ -15,8 +15,9 @@ def homepage():
     """view homepage."""
     return render_template("home.html")
 
-
-####################### ADVOCATE LOG-IN AND LOG-OUT #############################
+####################### ####################################### ############################
+####################### ADVOCATE LOG-IN AND LOG-OUT, HOME PAGE #############################
+####################### ####################################### #############################
 
 @app.route('/advocate')
 def advocate_home():
@@ -31,6 +32,7 @@ def advocate_home():
     sales_reps = []
     for relationship in relationships:
         sales_reps.append(relationship.sales_rep)
+
 
     form = AcceptMeeting()
     return render_template('advocate.html', sales_reps = sales_reps, user = user, meetings = meetings, form = form)
@@ -73,7 +75,10 @@ def adv_logout():
 def register():
     return render_template('/register.html')
 
+
+####################### ####################################### #############################
 ####################### SALES REP LOG-IN AND LOG-OUT, HOME PAGE #############################
+####################### ####################################### #############################
 
 @app.route('/rep')
 def rep_home():
@@ -141,7 +146,9 @@ def rep_logout():
     del session['rep_id']
     return redirect("/rep_login")
 
+####################### ####################################### #######################
 ####################### ADVOCATE VIEW INDIVIDUAL REP PAGE #############################
+####################### ####################################### #######################
 
 @app.route('/advocate/<rep_id>')
 def view_ind_rep(rep_id):
@@ -157,7 +164,9 @@ def view_ind_rep(rep_id):
     rep = crud.get_rep_by_rep_id(rep_id)
     return render_template('view_ind_rep.html', message_list = message_list, rep = rep)
 
+####################### ####################################### ########################
 ####################### SALES REP VIEW INDIVIDUAL ADV PAGE #############################
+####################### ####################################### ########################
 
 @app.route('/rep/<adv_id>', methods=['GET'])
 def view_ind_adv(adv_id):
@@ -210,7 +219,9 @@ def request_meeting(adv_id):
     print('FORM DID NOT VALIDATE')
     return render_template('view_ind_adv.html', form = form, adv = adv, message_list = message_list, meetings = meetings)
 
+####################### ####################################### ############################
 ####################### SALES REP VIEW INDIVIDUAL MEETING PAGE #############################
+####################### ####################################### ############################
 
 @app.route('/rep/meeting/<meeting_id>')
 def view_ind_mtg(meeting_id):
@@ -221,7 +232,9 @@ def view_ind_mtg(meeting_id):
     meeting = crud.get_meeting_by_meeting_id(meeting_id)
     return render_template('view_ind_meeting.html', meeting = meeting)
 
+####################### ####################################### ############################
 ####################### SALES ADV VIEW INDIVIDUAL MEETING PAGE #############################
+####################### ####################################### ############################
 
 @app.route('/adv/meeting/<meeting_id>')
 def view_ind_mtg_as_adv(meeting_id):
@@ -232,8 +245,9 @@ def view_ind_mtg_as_adv(meeting_id):
     meeting = crud.get_meeting_by_meeting_id(meeting_id)
     return render_template('view_ind_meeting_as_adv.html', meeting = meeting)
 
-
+####################### ####################################### ##################
 ####################### SALES REP VIEW PROSPECT PAGE #############################
+####################### ####################################### ##################
 
 @app.route('/rep/customer/<int:cust_id>')
 def view_ind_cust(cust_id):

@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 from flask import Flask
 from model import db, connect_to_db, SalesAdv, SalesRep, Customer, AdvRep
 
