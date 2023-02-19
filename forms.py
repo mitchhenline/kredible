@@ -15,6 +15,9 @@ class AddCustomer(FlaskForm):
     last_name=StringField('Last Name ', [validators.InputRequired()])
     email=StringField('Email ', [validators.InputRequired()])
     company=StringField('Company ', [validators.InputRequired()])
+    company_size=StringField('Company Size ',[validators.InputRequired()])
+    region=StringField('Region ',[validators.InputRequired()])
+    industry=StringField('Industry ',[validators.InputRequired()])
     phone_number=StringField('Phone Number ')
     notes=TextAreaField('Notes ')
 

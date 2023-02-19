@@ -27,11 +27,11 @@ rep3 = SalesRep(email = "phyllis@sales.com", password = "goaggies", first_name =
 
 
 # Sales Advs
-adv1 = SalesAdv(email = "carl@adv.com", password = "goaggies", first_name = "Carl", last_name = "Carlson", company = "Springfield Nuclear", phone_number= "090-225-3434", availability = "Tuesdays, 2pm - 5pm. Fridays, 1pm - 3pm")
-adv2 = SalesAdv(email = "barney@adv.com", password = "goaggies", first_name = "Barney", last_name = "Gumble", company = "Plow King", phone_number= "122-999-3774", availability = "Wednesdays, 4pm - 5pm. Thursdays, 10am - 12pm")
-adv3 = SalesAdv(email = "moe@adv.com", password = "goaggies", first_name = "Moe", last_name = "Syzlak", company = "Moe's Tavern", phone_number= "152-645-0101", availability = "Mondays-Thursdays, 10am - 12pm, 4 pm - 5pm")
-adv4 = SalesAdv(email = "patty@adv.com", password = "goaggies", first_name = "Patty", last_name = "Bouvier", company = "Springfield DMV", phone_number= "152-645-0662", availability = "Mondays-Tuesdays, 10am - 12pm, 4 pm - 5pm")
-adv5 = SalesAdv(email = "edna@adv.com", password = "goaggies", first_name = "Edna", last_name = "Krabappel", company = "Springfield Elementary", phone_number= "152-212-0133", availability = "Tuesdays-Thursdays, 8am - 5pm")
+adv1 = SalesAdv(email = "carl@adv.com", password = "goaggies", first_name = "Carl", last_name = "Carlson", company = "Springfield Nuclear", company_size = "Enterprise", region = "Oregon", industry = "Energy", phone_number= "090-225-3434", availability = "Tuesdays, 2pm - 5pm. Fridays, 1pm - 3pm")
+adv2 = SalesAdv(email = "barney@adv.com", password = "goaggies", first_name = "Barney", last_name = "Gumble", company = "Plow King", company_size = "Commercial", region = "Colorado", industry = "Service", phone_number= "122-999-3774", availability = "Wednesdays, 4pm - 5pm. Thursdays, 10am - 12pm")
+adv3 = SalesAdv(email = "moe@adv.com", password = "goaggies", first_name = "Moe", last_name = "Syzlak", company = "Moe's Tavern", company_size = "Commercial", region = "Pennsylvania", industry = "Restaurant", phone_number= "152-645-0101", availability = "Mondays-Thursdays, 10am - 12pm, 4 pm - 5pm")
+adv4 = SalesAdv(email = "patty@adv.com", password = "goaggies", first_name = "Patty", last_name = "Bouvier", company = "Springfield DMV", company_size = "Commercial", region = "Oregon", industry = "Government", phone_number= "152-645-0662", availability = "Mondays-Tuesdays, 10am - 12pm, 4 pm - 5pm")
+adv5 = SalesAdv(email = "edna@adv.com", password = "goaggies", first_name = "Edna", last_name = "Krabappel", company = "Springfield Elementary", company_size = "Commercial", region = "California", industry = "Government", phone_number= "152-212-0133", availability = "Tuesdays-Thursdays, 8am - 5pm")
 
 # Add reps and advs
 db.session.add_all([
@@ -48,12 +48,12 @@ db.session.commit()
 
 
 # Dummy customers
-customer1 = Customer(first_name = "Soleil", last_name = "Byrtus", email = "sb@bodhi.com", company = "ZB Music", phone_number = "123-123-1234", notes = "Soleil wants to meet to get a current customer's point of view about the ticketing software.", rep_id = 1)
-customer2 = Customer(first_name = "Matt", last_name = "Gawlik", email = "itschewsday@roight.com", company = "Cleveland Construction", phone_number = "123-123-1775", notes = "Matt would like more information regarding how our product has helped our customers get a better ROI.", rep_id = 1)
-customer3 = Customer(first_name = "Harry", last_name = "Colyer", email = "harry@vermont.com", company = "Renewable Energy Inc.", phone_number = "123-123-9999", notes = "Harry wants to know how our software can help streamline customer service processes.", rep_id = 1)
-customer4 = Customer(first_name = "Amelia", last_name = "Stimpson", email = "astimpson@luvrq.com", company = "RQ", phone_number = "123-123-4499", notes = "Amelia is interested in purchasing, but she would like to get a current customer's review on how it has benefitted their org.", rep_id = 1)
-customer5 = Customer(first_name = "Cole", last_name = "DeSilvia", email = "icecole@cybersecurity.com", company = "Big Time Cyber", phone_number = "123-123-9049", notes = "Cole wants to know how our software can help streamline customer service processes.", rep_id = 1)
-customer6 = Customer(first_name = "Matt", last_name = "Rosner", email = "rosboss@softball.com", company = "Softball Shop", phone_number = "123-523-9049", notes = "Mr. Rosner has some concern about the how the software integrates with his current technologies.", rep_id = 1)
+customer1 = Customer(first_name = "Soleil", last_name = "Byrtus", email = "sb@bodhi.com", company = "ZB Music", phone_number = "123-123-1234", company_size = "Commercial", region = "Florida", industry = "Music", notes = "Soleil wants to meet to get a current customer's point of view about the ticketing software.", rep_id = 1)
+customer2 = Customer(first_name = "Matt", last_name = "Gawlik", email = "itschewsday@roight.com", company = "Cleveland Construction", phone_number = "123-123-1775", company_size = "Commercial", region = "Ohio", industry = "Construction", notes = "Matt would like more information regarding how our product has helped our customers get a better ROI.", rep_id = 1)
+customer3 = Customer(first_name = "Harry", last_name = "Colyer", email = "harry@vermont.com", company = "Renewable Energy Inc.", phone_number = "123-123-9999", company_size = "Enterprise", region = "Vermont", industry = "Energy", notes = "Harry wants to know how our software can help streamline customer service processes.", rep_id = 1)
+customer4 = Customer(first_name = "Amelia", last_name = "Stimpson", email = "astimpson@luvrq.com", company = "RQ", phone_number = "123-123-4499", company_size = "Commercial", region = "Florida", industry = "Technology", notes = "Amelia is interested in purchasing, but she would like to get a current customer's review on how it has benefitted their org.", rep_id = 1)
+customer5 = Customer(first_name = "Cole", last_name = "DeSilvia", email = "icecole@cybersecurity.com", company = "Big Time Cyber", phone_number = "123-123-9049", company_size = "Enterprise", region = "Arizona", industry = "Technology", notes = "Cole wants to know how our software can help streamline customer service processes.", rep_id = 1)
+customer6 = Customer(first_name = "Matt", last_name = "Rosner", email = "rosboss@softball.com", company = "Softball Shop", phone_number = "123-523-9049", company_size = "Commercial", region = "Utah", industry = "Retail", notes = "Mr. Rosner has some concern about the how the software integrates with his current technologies.", rep_id = 1)
 
 
 # Commit customers to database

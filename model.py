@@ -35,6 +35,9 @@ class SalesAdv(db.Model):
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     company = db.Column(db.String(255))
+    company_size = db.Column(db.String(20))
+    region = db.Column(db.String(40))
+    industry = db.Column(db.String(40))
     phone_number = db.Column(db.String)
     availability = db.Column(db.Text)
 
@@ -52,6 +55,9 @@ class Customer(db.Model):
     email = db.Column(db.String(255))
     company = db.Column(db.String(255))
     phone_number = db.Column(db.String)
+    company_size = db.Column(db.String(20))
+    region = db.Column(db.String(40))
+    industry = db.Column(db.String(40))
     notes = db.Column(db.Text)
     rep_id = db.Column(db.Integer, db.ForeignKey("sales_reps.rep_id"))
 
@@ -124,3 +130,4 @@ def connect_to_db(flask_app, db_uri=os.environ["POSTGRES_URI"], echo=False):
 if __name__ == "__main__":
     from server import app
     connect_to_db(app)
+
