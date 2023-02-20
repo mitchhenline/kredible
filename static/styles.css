@@ -294,13 +294,18 @@ color:#374d42;
 
 .back:hover {
     color: #374d42;
-    border-color:#374d42;;
+    border-color:#374d42;
     background-color: #ffffff;
 }
 
 .notes {
     font-family: 'Mulish', sans-serif;
     font-size: 120%;
+}
+
+.black-notes {
+    color: #374d42;;
+
 }
 
 /* ////////////////////////////////////////////////// */
