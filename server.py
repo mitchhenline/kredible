@@ -269,26 +269,10 @@ def view_ind_cust(cust_id):
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
-    # form = MeetingFuncCust(session['rep_id'])
-    # if form.validate_on_submit():
-    #     meeting = Meeting(
-    #         date = form.date.data,
-    #         time = form.time.data,
-    #         meeting_link = form.meeting_link.data,
-    #         meeting_prep_notes = form.meeting_prep_notes.data,
-    #         meeting_accepted = False,
-    #         cust_id = cust_id,
-    #         adv_id = form.adv_id.data,
-    #         rep_id = session['rep_id']
-    #     )
-    #     db.session.add(meeting)
-    #     db.session.commit()
-    #     return redirect(f'/rep/{cust_id}')
-    # else:
-    #     print(form.errors)
-
-
     customer = crud.get_customer_by_cust_id(cust_id)
+    if customer.rep_id != session['rep_id']:
+        abort(403)
+
     return render_template('view_ind_cust.html', customer = customer)
 
 
