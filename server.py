@@ -1,7 +1,7 @@
 """Kredible server."""
 
 from flask import Flask, render_template, request, flash, session, redirect, abort
-from model import connect_to_db, db, Customer, Meeting
+from model import connect_to_db, db, Customer, Meeting, AdvRep
 from jinja2 import StrictUndefined
 import crud
 from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc, AcceptMeeting
@@ -156,6 +156,10 @@ def view_ind_rep(rep_id):
     if 'adv_id' not in session:
         return redirect('/advocate_login')
 
+    # check if sales adv is connected to rep
+    if not AdvRep.query.filter_by(rep_id=rep_id, adv_id=session['adv_id']).first():
+        abort(403) # return 403 Forbidden if not connected
+
     messages = crud.get_messages_by_rep_id(rep_id)
     message_list = []
     for message in messages:
@@ -174,6 +178,10 @@ def view_ind_adv(adv_id):
     if 'rep_id' not in session:
         return redirect('/rep_login')
 
+    # check if sales rep is connected to advocate
+    if not AdvRep.query.filter_by(adv_id=adv_id, rep_id=session['rep_id']).first():
+        abort(403) # return 403 Forbidden if not connected
+
     messages = crud.get_messages_by_adv_id(adv_id)
     message_list = []
     for message in messages:
@@ -189,6 +197,12 @@ def request_meeting(adv_id):
     """view sales rep's advocate information'"""
     if 'rep_id' not in session:
         return redirect('/rep_login')
+
+
+    # check if sales rep is connected to advocate
+    if not AdvRep.query.filter_by(adv_id=adv_id, rep_id=session['rep_id']).first():
+        abort(403) # return 403 Forbidden if not connected
+
     adv = crud.get_adv_by_adv_id(adv_id)
 
     form = MeetingFunc(session['rep_id'])
