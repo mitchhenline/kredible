@@ -244,6 +244,9 @@ def view_ind_mtg(meeting_id):
         return redirect('/rep_login')
 
     meeting = crud.get_meeting_by_meeting_id(meeting_id)
+    if meeting.rep_id != session['rep_id']:
+        abort(403)
+
     return render_template('view_ind_meeting.html', meeting = meeting)
 
 ####################### ####################################### ############################
@@ -257,6 +260,8 @@ def view_ind_mtg_as_adv(meeting_id):
         return redirect('/adv_login')
 
     meeting = crud.get_meeting_by_meeting_id(meeting_id)
+    if meeting.adv_id != session['adv_id']:
+        abort(403)
     return render_template('view_ind_meeting_as_adv.html', meeting = meeting)
 
 ####################### ####################################### ##################
