@@ -9,18 +9,30 @@
     <a class= "logout" href="/rep_logout">Log Out</a>
 </nav>
 
-<div class="container-white">
 
+<div class="container-white">
     <h3 class="in-con-title-green">{{ customer.first_name }} {{ customer.last_name }} || {{ customer.company }}</h3>
-    <div class="view-box">
-        <h3 class="view-box-font">Email: <span class="black-notes">{{ customer.email }}</span></h3>
-        <h3 class="view-box-font">Phone number: <span class="black-notes">{{ customer.phone_number }}</span></h3>
-        <h3 class="view-box-font">Region: <span class="black-notes">{{ customer.region }}</span></h3>
-        <h3 class="view-box-font">Company Size: <span class="black-notes">{{ customer.company_size }}</span></h3>
-        <h3 class="view-box-font">Industry: <span class="black-notes">{{ customer.industry }}</span></h3>
-        <h3 class="view-box-font">Notes: </h3>
-        <h4 class="notes">{{ customer.notes }}</h4>
-    </div>
+
+    <div class="two-box-container">
+        
+        <div class="rep-column first-column">
+            <h2 class="view-box-font">Contact and Company Info:</h2>
+            <h3 class="view-box-font">Email: <span class="black-notes">{{ customer.email }}</span></h3>
+            <h3 class="view-box-font">Phone number: <span class="black-notes">{{ customer.phone_number }}</span></h3>
+            <h3 class="view-box-font">Region: <span class="black-notes">{{ customer.region }}</span></h3>
+            <h3 class="view-box-font">Company Size: <span class="black-notes">{{ customer.company_size }}</span></h3>
+            <h3 class="view-box-font">Industry: <span class="black-notes">{{ customer.industry }}</span></h3>
+            <h3 class="view-box-font">Notes: </h3>
+            <h4 class="notes">{{ customer.notes }}</h4>
+        </div>
+
+
+        <div class="rep-column second-column">
+            <h3 class="view-box-font">Schedule a meeting with {{ customer.first_name }} {{ customer.last_name }}:</h3>
+            <p>right here we need a form that includes a filter to filter prospects by company size, industry and region</p>
+            <p> it should be like the other add meeting form but instead of taking the advocate id from the url variable it takes the cust id</p>
+        </div>
+    </div>    
 </div>
 
 <a class="back" href="/rep">Back</a>
