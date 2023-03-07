@@ -54,10 +54,12 @@ customer3 = Customer(first_name = "Harry", last_name = "Colyer", email = "harry@
 customer4 = Customer(first_name = "Amelia", last_name = "Stimpson", email = "astimpson@luvrq.com", company = "RQ", phone_number = "123-123-4499", company_size = "Commercial", region = "Florida", industry = "Technology", notes = "Amelia is interested in purchasing, but she would like to get a current customer's review on how it has benefitted their org.", rep_id = 1)
 customer5 = Customer(first_name = "Cole", last_name = "DeSilvia", email = "icecole@cybersecurity.com", company = "Big Time Cyber", phone_number = "123-123-9049", company_size = "Enterprise", region = "Arizona", industry = "Technology", notes = "Cole wants to know how our software can help streamline customer service processes.", rep_id = 1)
 customer6 = Customer(first_name = "Matt", last_name = "Rosner", email = "rosboss@softball.com", company = "Softball Shop", phone_number = "123-523-9049", company_size = "Commercial", region = "Utah", industry = "Retail", notes = "Mr. Rosner has some concern about the how the software integrates with his current technologies.", rep_id = 1)
+customer7 = Customer(first_name = "Matt", last_name = "Phillipe", email = "mp@gatorcountry.com", company = "Gator Country", phone_number = "123-513-5549", company_size = "Commercial", region = "Florida", industry = "Entertainment", notes = "Phillipe wants to outsource management of his mobile applications.", rep_id = 1)
+customer8 = Customer(first_name = "Kyle", last_name = "Prigmore", email = "prigprig@JCP.com", company = "JC Penney", phone_number = "123-523-1229", company_size = "Enterprise", region = "Utah", industry = "Retail", notes = "Kyle is looking to upgrade to our higher priced service and wants to speak wth someone who has done the same.", rep_id = 1)
 
 
 # Commit customers to database
-db.session.add_all([customer1,customer2, customer3, customer4, customer5, customer6])
+db.session.add_all([customer1,customer2, customer3, customer4, customer5, customer6, customer7, customer8])
 db.session.commit()
 
 # Create connections
