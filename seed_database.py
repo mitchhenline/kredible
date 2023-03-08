@@ -71,7 +71,9 @@ conn4 = AdvRep(rep_id = 1, adv_id = 4)
 conn5 = AdvRep(rep_id = 1, adv_id = 5)
 conn6 = AdvRep(rep_id = 2, adv_id = 1)
 conn7 = AdvRep(rep_id = 3, adv_id = 1)
+conn8 = AdvRep(rep_id = 2, adv_id = 2)
+conn9 = AdvRep(rep_id = 3, adv_id = 2)
 
-db.session.add_all([conn1,conn2, conn3, conn4, conn5, conn6, conn7])
+db.session.add_all([conn1,conn2, conn3, conn4, conn5, conn6, conn7, conn8, conn9])
 db.session.commit()
 
