@@ -28,9 +28,17 @@
 
 
         <div class="rep-column second-column">
-            <h3 class="view-box-font">Schedule a meeting with {{ customer.first_name }} {{ customer.last_name }}:</h3>
+            <h3 class="view-box-font">Schedule a meeting for {{ customer.first_name }} {{ customer.last_name }}:</h3>
             <p>right here we need a form that includes a filter to filter prospects by company size, industry and region</p>
             <p> it should be like the other add meeting form but instead of taking the advocate id from the url variable it takes the cust id</p>
+            
+            <form class="request-mtg-form"method="POST" action="/rep/customer/{{ customer.cust_id }}">
+                
+                <p>work here next</p>
+
+                <button id="button-font" class ="btn btn-primary" type="submit">Request Meeting</button>
+            </form>     
+
         </div>
     </div>    
 </div>

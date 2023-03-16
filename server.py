@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, flash, session, redirect, abo
 from model import connect_to_db, db, Customer, Meeting, AdvRep
 from jinja2 import StrictUndefined
 import crud
-from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc, AcceptMeeting
+from forms import AdvLoginForm, RepLoginForm, AddCustomer, MeetingFunc, AcceptMeeting, MeetingFuncByAdv
 
 app = Flask(__name__)
 app.secret_key= "gggc"
@@ -279,6 +279,34 @@ def view_ind_cust(cust_id):
         abort(403)
 
     return render_template('view_ind_cust.html', customer = customer)
+
+@app.route('/rep/customer/<int:cust_id>', methods =['POST'])
+def request_meeting_by_adv(cust_id):
+    if 'rep_id' not in session:
+        return redirect('/rep_login')
+    
+    customer = crud.get_customer_by_cust_id(cust_id)
+    if customer.rep_id != session['rep_id']:
+        abort(403)
+
+    form = MeetingFuncByAdv(session['rep_id'])
+    if form.validate_on_submit():
+        meeting = Meeting(
+            date = form.date.data,
+            time = form.time.data,
+            meeting_link = form.meeting_link.data,
+            meeting_prep_notes = form.meeting_prep_notes.data,
+            meeting_accepted = False,
+            cust_id = cust_id,
+            adv_id = form.adv_id.data,
+            rep_id = session['rep_id']
+        )
+        db.session.add(meeting)
+        db.session.commit()
+        flash("New Meeting Requested!")
+        return redirect(f'/rep/customer/{cust_id}')
+    else:
+        print(form.errors)
 
 
 if __name__ == "__main__":
